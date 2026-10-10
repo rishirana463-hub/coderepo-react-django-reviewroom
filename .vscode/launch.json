@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Reviewroom Django API (8000)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/backend/manage.py",
+            "python": "${workspaceFolder}/.venv/bin/python",
+            "windows": { "python": "${workspaceFolder}/.venv/Scripts/python.exe" },
+            "args": ["runserver", "0.0.0.0:8000", "--noreload"],
+            "django": true,
+            "cwd": "${workspaceFolder}/backend",
+            "envFile": "${workspaceFolder}/backend/.env",
+            "console": "integratedTerminal"
+        }
+    ]
+}

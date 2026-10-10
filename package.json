@@ -1,0 +1,18 @@
+{
+    "name": "coderepo-react-django-reviewroom",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Reviewroom content review and approval workspace",
+    "workspaces": ["frontend"],
+    "scripts": {
+        "prestart": "node scripts/setup.mjs --seed",
+        "start": "concurrently --kill-others \"node scripts/backend.mjs\" \"node scripts/frontend.mjs\"",
+        "dev:backend": "node scripts/backend.mjs",
+        "dev:frontend": "node scripts/frontend.mjs",
+        "seed": "node scripts/seed.mjs",
+        "lint": "node scripts/lint.mjs",
+        "build": "node scripts/build.mjs",
+        "test": "node scripts/python.mjs backend/manage.py test apps --verbosity 2"
+    },
+    "devDependencies": { "concurrently": "9.2.1" }
+}
