@@ -29,19 +29,24 @@ Updated: 2026-10-11 (Asia/Calcutta)
 - Phase 1 verification: npm run lint and npm run build pass; 13 real Mongo integration tests pass; exact install/start pass; browser owner creation/submission/feedback and reviewer approval/export availability pass without console errors.
 - Phase 1 build baseline: 261.77 kB JS (78.33 kB gzip), 91.97 kB CSS, 2.139 MB total deployment output including source maps.
 
+- Phase 2 initial inspection: all 10 authenticated page variants and login checked at all three widths (33 checks). No document horizontal overflow; project and asset forms fit all widths. Found small mobile typography and sub-44px close/color controls; correcting these before final verification.
+
+- Phase 2 complete: improved mobile typography, 16px phone fields, 44px touch controls, wrapped colors, complete horizontally scrollable tables, and fixed the loaded dashboard grid overflow.
+- Phase 2 verification: all 10 authenticated page variants plus login at 360/768/1280; project and asset dialogs fit; corrected dashboard rechecked at360 with scrollWidth345 <= viewport360. Lint and build pass.
+
 ## In progress
 
-- Phase 2: inspect every page and core dialogs at 360px, 768px, and 1280px; fix spacing, overflow, and tap targets.
+- Phase 3: reduce initial JavaScript and font payload, lazy-load noncritical features/images, and optimize repeated Mongo queries.
 
 ## Next
 
-1. Complete Phase 2 responsive verification and commit it.
-2. Complete Phase 2 (responsive at 360/768/1280), Phase 3 (performance), Phase 4 (accessibility and SEO), Phase 5 (security), and Phase 6 (documentation), in that order. Update this file, run `npm run lint` and `npm run build`, fix errors, and make one commit per completed phase.
+1. Complete Phase 3 performance verification and commit it.
+2. Complete Phase 3 (performance), Phase 4 (accessibility and SEO), Phase 5 (security), and Phase 6 (documentation), in that order. Update this file, run `npm run lint` and `npm run build`, fix errors, and make one commit per completed phase.
 3. Run the repository validation skill, export transcripts, create/verify a private submission repository, invite the specified collaborator, and notify the team if a Discord destination is supplied.
 
 ## Notes
 
-- Phase 1 is complete; Phases 2–6 are pending. The initial workspace had no application to audit or preserve, so a complete functional baseline must be implemented first.
+- Phases 1–2 are complete; Phases 3–6 are pending. The initial workspace had no application to audit or preserve, so a complete functional baseline must be implemented first.
 - Build size before is the Phase 1 Reviewroom output recorded above; the calendar reference measurement is separate and is not used as the app baseline.
 - `origin` is the verified private submission repository. `guidelines` is the public starter source; do not push project changes to `guidelines`.
 - The reference uses React 19.2.4, Vite 8.2.2, Django 5.1.5, MongoEngine 0.29.1, MongoDB, Python 3.12, Bun >=1.3, and uv. Preserve its root Bun workspace and `bun.lock`; do not introduce an npm lockfile.

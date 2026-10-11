@@ -890,6 +890,9 @@ input[type="date"] {
 	font-size: 8px;
 	color: #a398ac;
 }
+.dashboard-bottom > * {
+	min-width: 0;
+}
 .dashboard-bottom {
 	display: grid;
 	grid-template-columns: minmax(0, 2.1fr) minmax(230px, 1fr);
@@ -1475,7 +1478,7 @@ input[type="date"] {
 .form-field > select,
 .form-field > textarea {
 	width: 100%;
-	font-size: 12px;
+	font-size: 14px;
 }
 .form-field > small,
 .form-hint {
@@ -2798,7 +2801,7 @@ input[type="date"] {
 	color: #ad8ebe;
 }
 .login-form .form-field > input {
-	font-size: 11px;
+	font-size: 14px;
 	color: #aa8fbb;
 	border-color: #e8ddef;
 	background: #fff;
@@ -3031,10 +3034,10 @@ input[type="date"] {
 		max-width: 450px;
 	}
 	.page-heading > div > p:last-child {
-		font-size: 9px;
+		font-size: 11px;
 	}
 	.page-heading > .button {
-		font-size: 10px;
+		font-size: 11px;
 		padding: 9px 11px;
 	}
 	.global-search input {
@@ -3049,7 +3052,7 @@ input[type="date"] {
 		padding: 15px 17px;
 	}
 	.stat-card > small {
-		font-size: 8px;
+		font-size: 11px;
 	}
 	.project-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3081,10 +3084,10 @@ input[type="date"] {
 		border-top: 1px solid var(--border);
 	}
 	.activity-item p {
-		font-size: 9px;
+		font-size: 11px;
 	}
 	.activity-item small {
-		font-size: 8px;
+		font-size: 11px;
 	}
 	.activity-item p {
 		-webkit-line-clamp: 1;
@@ -3098,17 +3101,17 @@ input[type="date"] {
 		max-width: 165px;
 	}
 	.asset-table.compact .asset-name-button strong {
-		font-size: 10px;
+		font-size: 11px;
 		max-width: 220px;
 	}
 	.asset-table.compact .asset-name-button small {
-		font-size: 8px;
+		font-size: 11px;
 	}
 	.asset-table.compact .badge {
-		font-size: 8px;
+		font-size: 11px;
 	}
 	.asset-table.compact .due-date {
-		font-size: 9px;
+		font-size: 11px;
 	}
 	.asset-table.compact td {
 		padding: 13px;
@@ -3173,12 +3176,37 @@ input[type="date"] {
 		margin-top: 40px;
 	}
 	.login-approved {
-		font-size: 8px;
+		font-size: 11px;
 		right: -7px;
 		padding: 10px 12px;
 	}
 }
 @media (max-width: 767px) {
+	.form-field > input,
+	.form-field > textarea,
+	.form-field > select,
+	.login-form .form-field > input,
+	.stage-fields .form-field > input,
+	.comment-composer textarea,
+	.thread-reply-form textarea {
+		font-size: 16px;
+	}
+	.form-field > span,
+	.form-field > legend,
+	.login-form .form-field > span,
+	.stage-fields .form-field > span {
+		font-size: 12px;
+	}
+	.media-picker > button {
+		min-height: 44px;
+	}
+	.form-field {
+		gap: 9px;
+	}
+	.preview-toolbar > span:first-child,
+	.asset-kicker {
+		flex-wrap: wrap;
+	}
 	.sidebar {
 		transform: translateX(-100%);
 		transition: transform 0.2s ease;
@@ -3211,10 +3239,10 @@ input[type="date"] {
 	}
 	.mobile-menu {
 		display: flex;
-		width: 28px;
+		width: 44px;
 	}
 	.breadcrumb {
-		font-size: 9px;
+		font-size: 12px;
 		gap: 7px;
 	}
 	.topbar-actions {
@@ -3225,7 +3253,7 @@ input[type="date"] {
 	}
 	.global-search input {
 		width: 125px;
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.global-search kbd {
 		display: none;
@@ -3234,7 +3262,7 @@ input[type="date"] {
 		display: none;
 	}
 	.notification-button {
-		width: 29px;
+		width: 44px;
 	}
 	.main-content {
 		padding: 25px 20px 28px;
@@ -3247,12 +3275,12 @@ input[type="date"] {
 		font-size: 29px;
 	}
 	.page-heading .eyebrow {
-		font-size: 7px;
+		font-size: 12px;
 		letter-spacing: 1.5px;
 		margin-bottom: 9px;
 	}
 	.page-heading > div > p:last-child {
-		font-size: 9px;
+		font-size: 12px;
 		max-width: 340px;
 		margin-top: 9px;
 	}
@@ -3261,8 +3289,8 @@ input[type="date"] {
 	}
 	.page-heading > .button {
 		margin-top: 21px;
-		font-size: 9px;
-		min-height: 37px;
+		font-size: 12px;
+		min-height: 44px;
 		padding: 8px 10px;
 	}
 	.dashboard-stats {
@@ -3281,13 +3309,13 @@ input[type="date"] {
 		padding: 15px;
 	}
 	.project-card-body > p {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.project-progress-label {
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.project-card-footer > span {
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.dashboard-bottom {
 		margin-top: 23px;
@@ -3312,10 +3340,10 @@ input[type="date"] {
 		display: none;
 	}
 	.deadline-item > span:nth-child(2) > strong {
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.deadline-item > span:nth-child(2) > small {
-		font-size: 7px;
+		font-size: 12px;
 	}
 	.date-block {
 		min-width: 30px;
@@ -3329,7 +3357,7 @@ input[type="date"] {
 	}
 	.app-footer {
 		padding: 13px 20px 22px;
-		font-size: 7px;
+		font-size: 12px;
 	}
 	.asset-filters {
 		gap: 10px;
@@ -3338,11 +3366,11 @@ input[type="date"] {
 		gap: 7px;
 	}
 	.filter-group select {
-		font-size: 9px;
+		font-size: 12px;
 		max-width: 150px;
 	}
 	.filter-button {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.asset-table th,
 	.asset-table td {
@@ -3352,30 +3380,26 @@ input[type="date"] {
 		gap: 9px;
 	}
 	.asset-name-button strong {
-		font-size: 9px;
+		font-size: 12px;
 		max-width: 195px;
 	}
 	.asset-name-button small {
-		font-size: 7px;
+		font-size: 12px;
 	}
 	.asset-table .badge {
-		font-size: 8px;
-	}
-	.asset-table td:nth-child(3),
-	.asset-table th:nth-child(3) {
-		display: none;
+		font-size: 12px;
 	}
 	.asset-table.compact td:nth-child(3),
 	.asset-table.compact th:nth-child(3) {
 		display: table-cell;
 	}
 	.table-pagination {
-		font-size: 8px;
+		font-size: 12px;
 		padding: 14px;
 	}
 	.table-pagination .button {
-		font-size: 9px;
-		min-height: 32px;
+		font-size: 12px;
+		min-height: 44px;
 		padding: 6px 9px;
 	}
 	.project-detail-heading {
@@ -3388,14 +3412,14 @@ input[type="date"] {
 		justify-content: flex-start;
 	}
 	.heading-actions .button {
-		font-size: 10px;
-		min-height: 36px;
+		font-size: 12px;
+		min-height: 44px;
 	}
 	.project-members {
 		margin-top: 14px;
 	}
 	.project-members > span {
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.project-detail-heading .heading-actions {
 		margin-top: 4px;
@@ -3420,7 +3444,7 @@ input[type="date"] {
 		gap: 12px;
 	}
 	.asset-heading-actions .button {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.asset-workflow-bar {
 		padding: 13px;
@@ -3430,63 +3454,63 @@ input[type="date"] {
 		min-width: 210px;
 	}
 	.asset-workflow-bar strong {
-		font-size: 10px;
+		font-size: 12px;
 	}
 	.asset-workflow-bar > div:first-child > div > span {
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.decision-buttons {
 		margin-top: 4px;
 	}
 	.feedback-tabs > button {
-		font-size: 11px;
+		font-size: 12px;
 	}
 	.thread-header strong {
-		font-size: 10px;
+		font-size: 12px;
 	}
 	.thread-header small {
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.thread-body {
-		font-size: 11px;
+		font-size: 12px;
 	}
 	.thread-reply p {
-		font-size: 10px;
+		font-size: 12px;
 	}
 	.thread-reply strong {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.thread-reply-button {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.composer-top textarea {
-		font-size: 11px;
+		font-size: 12px;
 	}
 	.composer-bottom .button {
-		font-size: 9px;
+		font-size: 12px;
 		padding: 8px 12px;
-		min-height: 34px;
+		min-height: 44px;
 	}
 	.feedback-filter {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.feedback-filter select {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.toast {
 		left: 50%;
 		bottom: 18px;
-		font-size: 10px;
+		font-size: 12px;
 		padding: 11px 12px;
 	}
 	.inbox-item {
 		padding: 19px 17px;
 	}
 	.inbox-title {
-		font-size: 11px;
+		font-size: 12px;
 	}
 	.inbox-item p {
-		font-size: 10px;
+		font-size: 12px;
 	}
 	.reports-grid {
 		gap: 18px;
@@ -3501,10 +3525,10 @@ input[type="date"] {
 		align-items: flex-start;
 	}
 	.archive-project p {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.archive-project .text-button {
-		font-size: 9px;
+		font-size: 12px;
 		white-space: nowrap;
 	}
 	.login-page {
@@ -3523,12 +3547,12 @@ input[type="date"] {
 		font-size: 35px;
 	}
 	.login-story > div > p:not(.eyebrow) {
-		font-size: 11px;
+		font-size: 12px;
 		margin-top: 17px;
 		max-width: 330px;
 	}
 	.login-story .eyebrow {
-		font-size: 7px;
+		font-size: 12px;
 	}
 	.login-art {
 		display: none;
@@ -3546,11 +3570,11 @@ input[type="date"] {
 		font-size: 30px;
 	}
 	.login-form > .pill {
-		font-size: 7px;
+		font-size: 12px;
 		margin-bottom: 17px;
 	}
 	.login-form > p {
-		font-size: 10px;
+		font-size: 12px;
 		margin-bottom: 23px;
 	}
 	.login-footnote {
@@ -3561,7 +3585,7 @@ input[type="date"] {
 	}
 	.form-field > span,
 	.form-field > legend {
-		font-size: 11px;
+		font-size: 12px;
 	}
 	.modal-header {
 		padding: 24px 22px 20px;
@@ -3578,13 +3602,13 @@ input[type="date"] {
 	.form-field > input,
 	.form-field > textarea,
 	.form-field > select {
-		font-size: 12px;
-	}
-	.floating-create {
-		display: none;
+		font-size: 16px;
 	}
 }
 @media (max-width: 480px) {
+	.breadcrumb {
+		display: none;
+	}
 	.topbar {
 		padding: 0 14px;
 	}
@@ -3595,14 +3619,14 @@ input[type="date"] {
 	}
 	.breadcrumb {
 		gap: 5px;
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.topbar-actions {
 		gap: 6px;
 	}
 	.global-search input {
-		width: 94px;
-		font-size: 8px;
+		width: 165px;
+		font-size: 12px;
 	}
 	.global-search > svg {
 		width: 14px;
@@ -3627,7 +3651,7 @@ input[type="date"] {
 		margin-left: 8px;
 	}
 	.page-heading > div > p:last-child {
-		font-size: 9px;
+		font-size: 12px;
 		max-width: 290px;
 		line-height: 1.7;
 		margin-top: 10px;
@@ -3643,7 +3667,7 @@ input[type="date"] {
 		padding: 13px 12px;
 	}
 	.stat-label {
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.stat-icon {
 		width: 24px;
@@ -3658,7 +3682,7 @@ input[type="date"] {
 		margin-top: 6px;
 	}
 	.stat-card > small {
-		font-size: 7px;
+		font-size: 12px;
 		line-height: 1.6;
 		max-width: 120px;
 		margin-top: 6px;
@@ -3681,10 +3705,10 @@ input[type="date"] {
 		padding: 17px;
 	}
 	.project-card-body > p {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.project-progress-label {
-		font-size: 9px;
+		font-size: 12px;
 		margin-top: 18px;
 	}
 	.project-card-footer {
@@ -3693,19 +3717,19 @@ input[type="date"] {
 	.project-card-footer > .avatar-stack .avatar {
 		width: 27px;
 		height: 27px;
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.project-card-footer > span {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.section-heading h2 {
 		font-size: 14px;
 	}
 	.section-heading p {
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.section-heading .text-button {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.dashboard-bottom {
 		gap: 18px;
@@ -3718,16 +3742,16 @@ input[type="date"] {
 		font-size: 12px;
 	}
 	.review-panel .section-heading p {
-		font-size: 7px;
+		font-size: 12px;
 		max-width: 190px;
 	}
 	.review-panel .section-heading .text-button {
-		font-size: 8px;
+		font-size: 12px;
 		white-space: nowrap;
 		gap: 4px;
 	}
 	.asset-table.compact th {
-		font-size: 6px;
+		font-size: 12px;
 		padding: 10px;
 	}
 	.asset-table.compact td {
@@ -3739,10 +3763,10 @@ input[type="date"] {
 	}
 	.asset-table.compact .asset-name-button strong {
 		max-width: 125px;
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.asset-table.compact .asset-name-button small {
-		font-size: 6px;
+		font-size: 12px;
 	}
 	.asset-table.compact .asset-thumb {
 		width: 29px;
@@ -3753,16 +3777,16 @@ input[type="date"] {
 		height: 29px;
 	}
 	.asset-table.compact .badge {
-		font-size: 6px;
+		font-size: 12px;
 		gap: 3px;
 		padding: 4px 5px;
 	}
 	.asset-table.compact .due-date {
-		font-size: 7px;
+		font-size: 12px;
 	}
 	.asset-table.compact td:last-child,
 	.asset-table.compact th:last-child {
-		display: none;
+		display: table-cell;
 	}
 	.asset-table.compact td:nth-child(3),
 	.asset-table.compact th:nth-child(3) {
@@ -3781,10 +3805,10 @@ input[type="date"] {
 		gap: 12px;
 	}
 	.deadline-item > span:nth-child(2) > strong {
-		font-size: 10px;
+		font-size: 12px;
 	}
 	.deadline-item > span:nth-child(2) > small {
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.deadline-item > svg {
 		display: block;
@@ -3798,7 +3822,7 @@ input[type="date"] {
 	}
 	.app-footer {
 		padding: 13px 17px 20px;
-		font-size: 6px;
+		font-size: 12px;
 		gap: 9px;
 	}
 	.app-footer > span:last-child {
@@ -3814,7 +3838,7 @@ input[type="date"] {
 		gap: 22px;
 	}
 	.tabs > button {
-		font-size: 10px;
+		font-size: 12px;
 	}
 	.inline-search input {
 		width: 190px;
@@ -3827,22 +3851,22 @@ input[type="date"] {
 		gap: 6px;
 	}
 	.filter-group select {
-		font-size: 8px;
+		font-size: 12px;
 		max-width: 136px;
-		min-height: 35px;
+		min-height: 44px;
 		padding-left: 8px;
 	}
 	.filter-button {
-		font-size: 8px;
+		font-size: 12px;
 		padding: 7px 9px;
-		min-height: 35px;
+		min-height: 44px;
 	}
 	.filter-group .icon-button {
-		height: 35px;
-		width: 35px;
+		height: 44px;
+		width: 44px;
 	}
 	.asset-table th {
-		font-size: 6px;
+		font-size: 12px;
 		padding: 11px 10px;
 	}
 	.asset-table td {
@@ -3854,10 +3878,10 @@ input[type="date"] {
 	}
 	.asset-name-button strong {
 		max-width: 130px;
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.asset-name-button small {
-		font-size: 6px;
+		font-size: 12px;
 	}
 	.asset-thumb {
 		width: 31px;
@@ -3869,12 +3893,12 @@ input[type="date"] {
 		height: 33px;
 	}
 	.asset-table .badge {
-		font-size: 6px;
+		font-size: 12px;
 		gap: 3px;
 		padding: 4px 5px;
 	}
 	.asset-table .due-date {
-		font-size: 7px;
+		font-size: 12px;
 		gap: 3px;
 	}
 	.asset-table .due-date > svg {
@@ -3882,20 +3906,20 @@ input[type="date"] {
 	}
 	.asset-table th:last-child,
 	.asset-table td:last-child {
-		display: none;
+		display: table-cell;
 	}
 	.table-pagination {
 		padding: 12px 10px;
 		flex-wrap: wrap;
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.table-pagination > div {
 		margin-left: auto;
 	}
 	.table-pagination .button {
-		font-size: 8px;
+		font-size: 12px;
 		padding: 5px 8px;
-		min-height: 29px;
+		min-height: 44px;
 	}
 	.asset-detail-heading h1 {
 		font-size: 27px;
@@ -3905,17 +3929,17 @@ input[type="date"] {
 		flex-wrap: wrap;
 	}
 	.asset-meta > span:not(.badge) {
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.asset-meta .badge {
-		font-size: 7px;
+		font-size: 12px;
 	}
 	.asset-heading-actions {
 		gap: 6px;
 	}
 	.asset-heading-actions .button {
-		font-size: 8px;
-		min-height: 34px;
+		font-size: 12px;
+		min-height: 44px;
 		padding: 8px 10px;
 	}
 	.asset-workflow-bar > .avatar-stack {
@@ -3929,37 +3953,37 @@ input[type="date"] {
 		gap: 7px;
 	}
 	.decision-buttons .button {
-		font-size: 9px;
-		min-height: 33px;
+		font-size: 12px;
+		min-height: 44px;
 	}
 	.workflow-symbol {
 		width: 32px;
 		height: 32px;
 	}
 	.asset-workflow-bar strong {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.asset-workflow-bar > div:first-child > div > span {
-		font-size: 7px;
+		font-size: 12px;
 		line-height: 1.7;
 	}
 	.version-toolbar {
 		gap: 5px;
 	}
 	.version-toolbar > .muted {
-		font-size: 7px;
+		font-size: 12px;
 		max-width: 100px;
 	}
 	.version-toolbar > label {
-		font-size: 7px;
+		font-size: 12px;
 		gap: 7px;
 	}
 	.version-toolbar select {
-		font-size: 8px;
-		min-height: 28px;
+		font-size: 12px;
+		min-height: 44px;
 	}
 	.version-toolbar .text-button {
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.preview-toolbar {
 		padding: 11px 12px;
@@ -3972,7 +3996,7 @@ input[type="date"] {
 		min-height: 410px;
 	}
 	.copy-kicker {
-		font-size: 6px;
+		font-size: 12px;
 		letter-spacing: 1px;
 	}
 	.copy-paper > h2 {
@@ -3988,15 +4012,15 @@ input[type="date"] {
 		padding: 23px 15px 17px;
 	}
 	.visual-canvas > p {
-		font-size: 8px;
+		font-size: 12px;
 		margin-top: 17px;
 	}
 	.stage-chip {
-		font-size: 7px;
+		font-size: 12px;
 		padding: 7px;
 	}
 	.stage-chip > small {
-		font-size: 6px;
+		font-size: 12px;
 		margin-left: 2px;
 	}
 	.form-grid {
@@ -4017,15 +4041,15 @@ input[type="date"] {
 		max-width: 265px;
 	}
 	.modal-header p {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.modal-header .icon-button {
-		width: 29px;
+		width: 44px;
 	}
 	.member-options > label {
 		min-width: 125px;
 		padding: 8px;
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.stage-fields {
 		gap: 8px;
@@ -4034,13 +4058,13 @@ input[type="date"] {
 		flex: 1.2;
 	}
 	.stage-fields .form-field > span {
-		font-size: 7px;
+		font-size: 12px;
 	}
 	.reviewer-checkboxes {
 		gap: 9px 13px;
 	}
 	.reviewer-checkboxes > label {
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.media-picker {
 		gap: 5px;
@@ -4054,7 +4078,7 @@ input[type="date"] {
 	.toast {
 		width: calc(100vw - 32px);
 		max-width: none;
-		font-size: 9px;
+		font-size: 12px;
 		gap: 8px;
 		line-height: 1.6;
 	}
@@ -4071,17 +4095,17 @@ input[type="date"] {
 		border-radius: 7px;
 	}
 	.inbox-title {
-		font-size: 10px;
+		font-size: 12px;
 	}
 	.inbox-item p {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.inbox-item small {
-		font-size: 7px;
+		font-size: 12px;
 	}
 	.inbox-item > .icon-button {
-		width: 24px;
-		height: 24px;
+		width: 44px;
+		height: 44px;
 	}
 	.report-stats .stat-card > strong {
 		font-size: 31px;
@@ -4091,32 +4115,32 @@ input[type="date"] {
 		padding: 18px 15px;
 	}
 	.project-report-list > button > div:first-child {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.project-report-list > button > div:first-child > span {
-		font-size: 7px;
+		font-size: 12px;
 	}
 	.project-report-list small {
-		font-size: 7px;
+		font-size: 12px;
 	}
 	.trend-chart {
 		gap: 14px;
 		height: 175px;
 	}
 	.trend-column > small {
-		font-size: 7px;
+		font-size: 12px;
 	}
 	.workload-card {
 		gap: 8px;
 	}
 	.workload-card > div > strong {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.workload-card > div > small {
-		font-size: 7px;
+		font-size: 12px;
 	}
 	.workload-card > span:last-child {
-		font-size: 7px;
+		font-size: 12px;
 	}
 	.workload-card > span:nth-last-child(2) > strong {
 		font-size: 20px;
@@ -4132,7 +4156,7 @@ input[type="date"] {
 		font-size: 25px;
 	}
 	.guide-card p {
-		font-size: 10px;
+		font-size: 12px;
 	}
 	.guide-permissions {
 		padding: 20px;
@@ -4141,7 +4165,7 @@ input[type="date"] {
 		font-size: 20px;
 	}
 	.guide-permissions p {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.archive-project {
 		flex-direction: column;
@@ -4157,11 +4181,11 @@ input[type="date"] {
 		font-size: 31px;
 	}
 	.login-story .eyebrow {
-		font-size: 6px;
+		font-size: 12px;
 		letter-spacing: 1.5px;
 	}
 	.login-story > div > p:not(.eyebrow) {
-		font-size: 10px;
+		font-size: 12px;
 		line-height: 1.8;
 		margin-top: 16px;
 		max-width: 290px;
@@ -4173,18 +4197,75 @@ input[type="date"] {
 		font-size: 29px;
 	}
 	.login-form > p {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.login-footnote {
-		font-size: 9px;
+		font-size: 12px;
 	}
 	.demo-access > p,
 	.demo-access code {
-		font-size: 8px;
+		font-size: 12px;
 	}
 	.demo-access button {
-		font-size: 9px;
+		font-size: 12px;
 		padding: 7px 11px;
+	}
+}
+@media (max-width: 980px) {
+	.button,
+	.button.small,
+	.icon-button,
+	.text-button,
+	.tabs > button,
+	.demo-access button,
+	.asset-name-button,
+	.inbox-title,
+	.filter-group select,
+	.version-toolbar select {
+		min-height: 44px;
+	}
+	.icon-button,
+	.text-button {
+		min-width: 44px;
+	}
+	.member-options > label,
+	.reviewer-checkboxes > label {
+		min-height: 44px;
+	}
+	.color-options {
+		flex-wrap: wrap;
+	}
+	.color-options > button {
+		width: 44px;
+		height: 44px;
+		border-width: 9px;
+	}
+	.asset-table {
+		min-width: 640px;
+	}
+	.asset-table.compact {
+		min-width: 550px;
+	}
+	.asset-table td,
+	.asset-table th {
+		display: table-cell;
+	}
+}
+@media (max-width: 767px) {
+	.global-search input,
+	.inline-search input,
+	.filter-group select,
+	.feedback-filter select,
+	.version-toolbar select,
+	.composer-top textarea,
+	.thread-reply-form textarea {
+		font-size: 16px;
+	}
+	.form-field > small,
+	.form-hint,
+	.member-options small,
+	.modal-header p {
+		font-size: 12px;
 	}
 }
 @media (prefers-reduced-motion: reduce) {
