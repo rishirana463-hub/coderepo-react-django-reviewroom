@@ -68,8 +68,8 @@ export default function App() {
 		return () => clearTimeout(timer);
 	}, [toast]);
 	useEffect(() => {
-		document.title = `${{ overview: "Overview", projects: "Projects", assets: "All assets", reviews: "My reviews", reports: "Reports", inbox: "Inbox", asset: "Asset review", project: "Project", help: "Workspace guide" }[page] || "Workspace"} · Reviewroom`;
-	}, [page]);
+		document.title = `${!user ? "Sign in" : { overview: "Overview", projects: "Projects", assets: "All assets", reviews: "My reviews", reports: "Reports", inbox: "Inbox", asset: "Asset review", project: "Project", help: "Workspace guide" }[page] || "Workspace"} · Reviewroom`;
+	}, [page, user]);
 	async function logout() {
 		try {
 			await api("/auth/logout", { method: "POST" });

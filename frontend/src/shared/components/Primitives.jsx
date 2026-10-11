@@ -4,7 +4,7 @@ import Icon from "./Icon";
 export function Avatar({ user, name, size = "", color = "" }) {
 	const label = user?.name || user?.full_name || name || "Team member";
 	return (
-		<span className={`avatar ${size} ${color || user?.color || ""}`} title={label}>
+		<span className={`avatar ${size} ${color || user?.color || ""}`} title={label} role="img" aria-label={label}>
 			{initials(label)}
 		</span>
 	);

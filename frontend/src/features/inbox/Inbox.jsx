@@ -47,10 +47,10 @@ export default function Inbox({ items = [], navigate, onChanged, notify, user })
 				)}
 			</div>
 			<div className="tabs inbox-tabs">
-				<button className={!unreadOnly ? "active" : ""} onClick={() => setUnreadOnly(false)}>
+				<button className={!unreadOnly ? "active" : ""} aria-pressed={!unreadOnly} onClick={() => setUnreadOnly(false)}>
 					All updates <span>{items.length}</span>
 				</button>
-				<button className={unreadOnly ? "active" : ""} onClick={() => setUnreadOnly(true)}>
+				<button className={unreadOnly ? "active" : ""} aria-pressed={unreadOnly} onClick={() => setUnreadOnly(true)}>
 					Unread <span>{items.filter((item) => !item.read).length}</span>
 				</button>
 			</div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
 import { Avatar } from "./Primitives";
 import { titleCase } from "../utils/format";
@@ -13,17 +13,77 @@ const links = [
 ];
 export default function Shell({ user, page, navigate, unread, search, setSearch, onLogout, children }) {
 	const [open, setOpen] = useState(false);
+	const [mobile, setMobile] = useState(() => window.matchMedia("(max-width: 767px)").matches);
+	const sidebar = useRef(null);
+	const menuButton = useRef(null);
+	const main = useRef(null);
+	useEffect(() => {
+		const media = window.matchMedia("(max-width: 767px)");
+		const changed = () => {
+			setMobile(media.matches);
+			if (!media.matches) setOpen(false);
+		};
+		media.addEventListener("change", changed);
+		return () => media.removeEventListener("change", changed);
+	}, []);
+	useEffect(() => {
+		if (!mobile || !open) return;
+		const previousOverflow = document.body.style.overflow;
+		document.body.style.overflow = "hidden";
+		sidebar.current?.querySelector("a")?.focus();
+		return () => {
+			document.body.style.overflow = previousOverflow;
+			menuButton.current?.focus();
+		};
+	}, [mobile, open]);
+	const focusMain = () => requestAnimationFrame(() => main.current?.focus());
 	const go = (path) => {
 		navigate(path);
 		setOpen(false);
+		focusMain();
 	};
+	function navigationKeyDown(event) {
+		if (!mobile || !open) return;
+		if (event.key === "Escape") {
+			event.preventDefault();
+			setOpen(false);
+		}
+		if (event.key !== "Tab") return;
+		const controls = [...sidebar.current.querySelectorAll("a[href], button:not([disabled])")];
+		const first = controls[0];
+		const last = controls[controls.length - 1];
+		if (event.shiftKey && document.activeElement === first) {
+			event.preventDefault();
+			last?.focus();
+		} else if (!event.shiftKey && document.activeElement === last) {
+			event.preventDefault();
+			first?.focus();
+		}
+	}
 	return (
 		<div className="app-layout">
-			<a href="#main-content" className="skip-link">
+			<a
+				href="#main-content"
+				className="skip-link"
+				inert={mobile && open}
+				onClick={(event) => {
+					event.preventDefault();
+					main.current?.focus();
+				}}
+			>
 				Skip to content
 			</a>
 			{open && <button className="sidebar-shade" aria-label="Close navigation" onClick={() => setOpen(false)} />}
-			<aside className={`sidebar ${open ? "is-open" : ""}`} aria-label="Workspace navigation">
+			<aside
+				id="workspace-navigation"
+				ref={sidebar}
+				className={`sidebar ${open ? "is-open" : ""}`}
+				aria-label="Workspace navigation"
+				role={mobile && open ? "dialog" : undefined}
+				aria-modal={mobile && open ? true : undefined}
+				inert={mobile && !open}
+				onKeyDown={navigationKeyDown}
+			>
 				<a
 					href="#overview"
 					className="brand"
@@ -48,7 +108,7 @@ export default function Shell({ user, page, navigate, unread, search, setSearch,
 					<Icon name="down" size={15} />
 				</div>
 				<p className="nav-caption">WORKSPACE</p>
-				<nav>
+				<nav aria-label="Main navigation">
 					{links.map(([path, icon, label]) => (
 						<a
 							key={path}
@@ -97,13 +157,15 @@ export default function Shell({ user, page, navigate, unread, search, setSearch,
 					</div>
 				</div>
 			</aside>
-			<div className="main-layout">
+			<div className="main-layout" inert={mobile && open}>
 				<header className="topbar">
 					<div className="topbar-start">
 						<button
+							ref={menuButton}
 							className="icon-button mobile-menu"
 							aria-label="Open navigation"
 							aria-expanded={open}
+							aria-controls="workspace-navigation"
 							onClick={() => setOpen((value) => !value)}
 						>
 							<Icon name="menu" />
@@ -145,7 +207,7 @@ export default function Shell({ user, page, navigate, unread, search, setSearch,
 						<Avatar user={user} size="small" color="peach" />
 					</div>
 				</header>
-				<main id="main-content" className={`main-content page-${page}`}>
+				<main id="main-content" ref={main} tabIndex={-1} className={`main-content page-${page}`}>
 					{children}
 				</main>
 				<footer className="app-footer">

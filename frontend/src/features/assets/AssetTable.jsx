@@ -10,15 +10,16 @@ export default function AssetTable({ assets = [], onOpen, people = [], compact =
 			</EmptyState>
 		);
 	return (
-		<div className="asset-table-wrap">
+		<div className="asset-table-wrap" tabIndex={0} role="region" aria-label="Assets. Scroll horizontally for all columns.">
 			<table className={`asset-table ${compact ? "compact" : ""}`}>
+				<caption className="sr-only">Assets with review status and due dates</caption>
 				<thead>
 					<tr>
-						<th>ASSET NAME</th>
-						<th>STATUS</th>
-						{!compact && <th>REVIEWERS</th>}
-						<th>DUE DATE</th>
-						<th aria-label="Open asset" />
+						<th scope="col">ASSET NAME</th>
+						<th scope="col">STATUS</th>
+						{!compact && <th scope="col">REVIEWERS</th>}
+						<th scope="col">DUE DATE</th>
+						<th scope="col" aria-label="Open asset" />
 					</tr>
 				</thead>
 				<tbody>

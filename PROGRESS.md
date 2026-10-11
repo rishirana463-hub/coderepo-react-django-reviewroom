@@ -38,19 +38,22 @@ Updated: 2026-10-11 (Asia/Calcutta)
 - Phase 3 backend: project reads10→3; reports7→5 and BSON payload−71.9%; CSV payload−82.9%; all18 sampled responses identical. All14 integration tests and lint/build pass.
 - Phase 3 size: initial JS209.89kB (before261.77kB); total JS266.97kB including deferred chunks; fonts129.75kB (before656.14kB); deploy output473.86kB (before2139.27kB including source maps).
 
+- Phase 4 complete: skip-link routing/focus fixed; mobile navigation inert/focus trap/Escape/restore; keyboard image pins and selectable copy; semantic labeled tables, selected-button state, avatar names, stronger text/focus contrast, sign-in title, OG/Twitter metadata, and noindex/robots policy.
+- Phase 4 verification: browser proved unchanged skip-link URL/main focus, center image pin, mobile background inertness, Tab wrapping and Escape/opener restoration. Lint/build pass. Full screen-reader certification is not claimed.
+
 ## In progress
 
-- Phase 4: accessibility, keyboard navigation, contrast, semantic tables, and sharing metadata.
+- Phase 5: secret/dependency scans, environment protection, authentication hardening, and security response headers.
 
 ## Next
 
-1. Complete Phase 4 accessibility/SEO verification and commit it.
-2. Complete Phase 4 (accessibility and SEO), Phase 5 (security), and Phase 6 (documentation), in that order. Update this file, run `npm run lint` and `npm run build`, fix errors, and make one commit per completed phase.
+1. Complete Phase 5 security verification and commit it.
+2. Complete Phase 5 (security), and Phase 6 (documentation), in that order. Update this file, run `npm run lint` and `npm run build`, fix errors, and make one commit per completed phase.
 3. Run the repository validation skill, export transcripts, create/verify a private submission repository, invite the specified collaborator, and notify the team if a Discord destination is supplied.
 
 ## Notes
 
-- Phases 1–3 are complete; Phases 4–6 are pending. The initial workspace had no application to audit or preserve, so a complete functional baseline must be implemented first.
+- Phases 1–4 are complete; Phases 5–6 are pending. The initial workspace had no application to audit or preserve, so a complete functional baseline must be implemented first.
 - Build size before is the Phase 1 Reviewroom output recorded above; the calendar reference measurement is separate and is not used as the app baseline.
 - `origin` is the verified private submission repository. `guidelines` is the public starter source; do not push project changes to `guidelines`.
 - The reference uses React 19.2.4, Vite 8.2.2, Django 5.1.5, MongoEngine 0.29.1, MongoDB, Python 3.12, Bun >=1.3, and uv. Preserve its root Bun workspace and `bun.lock`; do not introduce an npm lockfile.

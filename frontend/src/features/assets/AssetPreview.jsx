@@ -25,10 +25,11 @@ export default function AssetPreview({ asset, version, onAnchor, anchor, current
 	function selectPoint(event) {
 		if (!current) return;
 		const bounds = event.currentTarget.getBoundingClientRect();
+		const position = (coordinate, origin, size) => Number(Math.min(1, Math.max(0, (coordinate - origin) / size)).toFixed(4));
 		onAnchor({
 			type: "image",
-			x: Number(((event.clientX - bounds.left) / bounds.width).toFixed(4)),
-			y: Number(((event.clientY - bounds.top) / bounds.height).toFixed(4)),
+			x: event.detail === 0 ? 0.5 : position(event.clientX, bounds.left, bounds.width),
+			y: event.detail === 0 ? 0.5 : position(event.clientY, bounds.top, bounds.height),
 			label: "Point on image",
 		});
 	}
@@ -68,7 +69,15 @@ export default function AssetPreview({ asset, version, onAnchor, anchor, current
 					<div className="copy-paper">
 						<span className="copy-kicker">{asset.projectName} / COPY REVIEW</span>
 						<h2>{version?.title || asset.title}</h2>
-						<div ref={copyRef} className="copy-content" onMouseUp={selectText} onKeyUp={selectText}>
+						<div
+							ref={copyRef}
+							className="copy-content"
+							tabIndex={0}
+							role="region"
+							aria-label="Copy content for review"
+							onMouseUp={selectText}
+							onKeyUp={selectText}
+						>
 							{content || "This draft is waiting for its first words."}
 						</div>
 						<div className="paper-bottom">

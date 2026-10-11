@@ -266,10 +266,18 @@ export default function AssetDetail({ id, user, people, projects, navigate, onCh
 				</div>
 				<aside className="feedback-panel" aria-label="Feedback and version history">
 					<div className="tabs feedback-tabs">
-						<button className={tab === "feedback" ? "active" : ""} onClick={() => setTab("feedback")}>
+						<button
+							className={tab === "feedback" ? "active" : ""}
+							aria-pressed={tab === "feedback"}
+							onClick={() => setTab("feedback")}
+						>
 							Feedback <span>{asset.comments?.filter((item) => item.version === version).length || 0}</span>
 						</button>
-						<button className={tab === "history" ? "active" : ""} onClick={() => setTab("history")}>
+						<button
+							className={tab === "history" ? "active" : ""}
+							aria-pressed={tab === "history"}
+							onClick={() => setTab("history")}
+						>
 							History
 						</button>
 					</div>

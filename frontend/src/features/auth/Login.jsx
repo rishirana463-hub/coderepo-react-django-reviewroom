@@ -90,6 +90,7 @@ export default function Login({ onLogin }) {
 								<button
 									type="button"
 									className={email.startsWith(role) ? "active" : ""}
+									aria-pressed={email.startsWith(role)}
 									key={role}
 									onClick={() => {
 										setEmail(`${role}@reviewroom.test`);
