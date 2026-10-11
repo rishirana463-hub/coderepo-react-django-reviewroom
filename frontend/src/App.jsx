@@ -1,20 +1,21 @@
-import { useCallback, useEffect, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { api, setToken, setUnauthorizedHandler } from "./shared/api/client";
 import useResource from "./shared/api/useResource";
 import Shell from "./shared/components/Shell";
+import ScreenBoundary from "./shared/components/ScreenBoundary";
 import Icon from "./shared/components/Icon";
 import { ErrorState, LoadingState } from "./shared/components/Primitives";
-import Guide from "./shared/components/Guide";
+const Guide = lazy(() => import("./shared/components/Guide"));
 import Login from "./features/auth/Login";
-import Dashboard from "./features/dashboard/Dashboard";
-import Projects from "./features/projects/Projects";
-import ProjectDetail from "./features/projects/ProjectDetail";
-import ProjectForm from "./features/projects/ProjectForm";
-import Assets from "./features/assets/Assets";
-import AssetDetail from "./features/assets/AssetDetail";
-import AssetForm from "./features/assets/AssetForm";
-import Inbox from "./features/inbox/Inbox";
-import Reports from "./features/reports/Reports";
+const Dashboard = lazy(() => import("./features/dashboard/Dashboard"));
+const Projects = lazy(() => import("./features/projects/Projects"));
+const ProjectDetail = lazy(() => import("./features/projects/ProjectDetail"));
+const ProjectForm = lazy(() => import("./features/projects/ProjectForm"));
+const Assets = lazy(() => import("./features/assets/Assets"));
+const AssetDetail = lazy(() => import("./features/assets/AssetDetail"));
+const AssetForm = lazy(() => import("./features/assets/AssetForm"));
+const Inbox = lazy(() => import("./features/inbox/Inbox"));
+const Reports = lazy(() => import("./features/reports/Reports"));
 
 function readRoute() {
 	return window.location.hash.slice(1) || "overview";
@@ -30,7 +31,7 @@ export default function App() {
 	const [routePath, query = ""] = route.split("?");
 	const [page, id] = routePath.split("/");
 	const projects = useResource(user ? "/projects" : null, null, refreshKey);
-	const people = useResource(user ? "/people" : null, null, refreshKey);
+	const people = useResource(user ? "/people" : null, null, user?.id);
 	const inbox = useResource(user ? "/inbox" : null, [], refreshKey);
 	const changed = useCallback(() => setRefreshKey((value) => value + 1), []);
 	const notify = useCallback((message, type = "success") => setToast({ message, type }), []);
@@ -146,36 +147,46 @@ export default function App() {
 				setSearch={setSearch}
 				onLogout={logout}
 			>
-				{content}
+				<ScreenBoundary key={routePath}>
+					<Suspense fallback={<LoadingState />}>{content}</Suspense>
+				</ScreenBoundary>
 			</Shell>
-			{modal?.type === "project" && (
-				<ProjectForm
-					people={people.data || []}
-					user={user}
-					onClose={() => setModal(null)}
-					onSaved={(project) => {
-						setModal(null);
-						changed();
-						navigate(`project/${project.id}`);
-						notify("A new room for good work. Your project is ready.");
-					}}
-				/>
-			)}
-			{modal?.type === "asset" && (
-				<AssetForm
-					projects={projects.data || []}
-					projectId={modal.projectId}
-					people={people.data || []}
-					user={user}
-					onClose={() => setModal(null)}
-					onSaved={(asset) => {
-						setModal(null);
-						changed();
-						navigate(`asset/${asset.id}`);
-						notify("Your first draft is in. Let’s make it a good one.");
-					}}
-				/>
-			)}
+			<Suspense
+				fallback={
+					<div className="toast" role="status">
+						Opening form…
+					</div>
+				}
+			>
+				{modal?.type === "project" && (
+					<ProjectForm
+						people={people.data || []}
+						user={user}
+						onClose={() => setModal(null)}
+						onSaved={(project) => {
+							setModal(null);
+							changed();
+							navigate(`project/${project.id}`);
+							notify("A new room for good work. Your project is ready.");
+						}}
+					/>
+				)}
+				{modal?.type === "asset" && (
+					<AssetForm
+						projects={projects.data || []}
+						projectId={modal.projectId}
+						people={people.data || []}
+						user={user}
+						onClose={() => setModal(null)}
+						onSaved={(asset) => {
+							setModal(null);
+							changed();
+							navigate(`asset/${asset.id}`);
+							notify("Your first draft is in. Let’s make it a good one.");
+						}}
+					/>
+				)}
+			</Suspense>
 			{toast && (
 				<div className={`toast ${toast.type}`} role="status">
 					<Icon name={toast.type === "error" ? "help" : "check"} size={18} />

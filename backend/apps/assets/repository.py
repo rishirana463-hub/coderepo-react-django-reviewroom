@@ -17,8 +17,8 @@ def get(member, asset_id, writable=False):
     return asset, project
 
 
-def filtered(member, params):
-    project_ids = [project.id for project in projects.accessible(member)]
+def filtered(member, params, visible_projects=None):
+    project_ids = [project.id for project in (visible_projects if visible_projects is not None else projects.accessible(member))]
     query = Asset.objects(project_id__in=project_ids)
     if params.get("projectId"):
         project = projects.get(member, params["projectId"])

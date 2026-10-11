@@ -63,4 +63,14 @@ def delete_saved_view(view):
 
 
 def approval_events(asset_ids, since):
-    return list(Activity.objects(asset_id__in=asset_ids, action="review_approved", created_at__gte=since))
+    return list(Activity.objects(asset_id__in=asset_ids, action="review_approved", created_at__gte=since).only("created_at"))
+
+
+def report_assets(query):
+    # Analytics needs workflow state, not immutable content or feedback bodies.
+    return query.only("project_id", "status", "due_at", "approved_at", "submitted_at", "current_stage",
+                      "stages.reviewer_ids", "versions.number", "decisions.version", "decisions.stage_index", "decisions.reviewer_id")
+
+
+def export_assets(query):
+    return query.only("title", "project_id", "type", "status", "versions.number", "due_at", "approved_at")

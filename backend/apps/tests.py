@@ -210,6 +210,50 @@ class WorkflowIntegrationTests(SimpleTestCase):
         self.assertIn("'=HYPERLINK", self.call("get", "/reports/export.csv").content.decode())
         self.assertEqual(self.call("get", "/reports", user="owner").json()["data"]["summary"]["totalAssets"], 2)
 
+    def test_project_counts_and_reports_preserve_version_and_stage_workload(self):
+        empty = Project(name="Empty project", member_ids=[self.members["owner"].id]).save()
+        staged = self.submit(self.make_asset(quorum=2, second_stage=True, title="Staged"))
+        staged = self.decide(staged).json()["data"]
+        versioned = self.submit(self.make_asset(title="Versioned"))
+        versioned = self.decide(versioned).json()["data"]
+        versioned = self.call("post", f"/assets/{versioned['id']}/versions",
+                              {"revision": versioned["revision"], "content": "A new story"}, user="editor").json()["data"]
+        self.submit(versioned)
+        approved = self.submit(self.make_asset(title="Approved"))
+        self.assertEqual(self.decide(approved).json()["data"]["status"], "approved")
+
+        listed = {item["id"]: item for item in self.call("get", "/projects").json()["data"]}
+        self.assertEqual((listed[str(self.project.id)]["assetCount"], listed[str(self.project.id)]["approvedCount"]), (3, 1))
+        self.assertEqual((listed[str(empty.id)]["assetCount"], listed[str(empty.id)]["approvedCount"]), (0, 0))
+        updated = self.call("patch", f"/projects/{self.project.id}", {"name": "Renamed"}).json()["data"]
+        self.assertEqual((updated["assetCount"], updated["approvedCount"]), (3, 1))
+
+        report = self.call("get", "/reports").json()["data"]
+        self.assertEqual(report["summary"]["totalAssets"], 3)
+        self.assertEqual(report["summary"]["inReview"], 2)
+        self.assertEqual(report["summary"]["approved"], 1)
+        self.assertEqual(report["summary"]["overdue"], 2)
+        self.assertEqual(report["summary"]["approvalRate"], 33.3)
+        workloads = {item["reviewer"]["id"]: item["assigned"] for item in report["workload"]}
+        # Old-version decisions must not satisfy the current review, and a later
+        # stage must not count until the active stage reaches its quorum.
+        self.assertEqual(workloads[str(self.members["reviewer"].id)], 1)
+        self.assertEqual(workloads[str(self.members["reviewer2"].id)], 2)
+        self.assertEqual(workloads[str(self.members["owner"].id)], 0)
+        self.assertEqual(sum(point["approvals"] for point in report["trend"]), 3)
+        filtered = self.call("get", "/reports?status=approved").json()["data"]
+        self.assertEqual(filtered["summary"]["totalAssets"], 1)
+        self.assertEqual(sum(item["assigned"] for item in filtered["workload"]), 0)
+        self.assertEqual({item["id"]: item["total"] for item in filtered["byProject"]},
+                         {str(self.project.id): 1, str(empty.id): 0})
+
+        self.assertEqual(self.decide(staged, user="reviewer2").json()["data"]["currentStage"], 1)
+        report = self.call("get", "/reports").json()["data"]
+        workloads = {item["reviewer"]["id"]: item["assigned"] for item in report["workload"]}
+        self.assertEqual(workloads[str(self.members["owner"].id)], 1)
+        self.assertEqual(workloads[str(self.members["reviewer2"].id)], 1)
+        self.assertIn("Versioned,Renamed,copy,in_review,2,", self.call("get", "/reports/export.csv").content.decode())
+
     def test_archived_project_and_incompatible_assignments(self):
         self.assertEqual(self.call("post", "/assets", {"projectId": str(self.project.id), "title": "Invalid", "type": "copy", "stages": [{"name": "Self", "reviewerIds": [str(self.members['editor'].id)], "quorum": 1}]}, user="editor").status_code, 422)
         asset = self.submit(self.make_asset())

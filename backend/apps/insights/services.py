@@ -1,6 +1,6 @@
 import csv
 import io
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import timedelta, timezone
 
 from apps.assets import repository as assets
@@ -97,27 +97,47 @@ def delete_saved_view(member, view_id):
 
 
 def reports(member, params):
-    records = list(assets.filtered(member, params))
+    visible_projects = list(projects.accessible(member))
+    records = list(repository.report_assets(assets.filtered(member, params, visible_projects)))
     timestamp = now()
-    counts = Counter(asset.status for asset in records)
-    overdue = lambda asset: bool(asset.due_at and asset.due_at.replace(tzinfo=timezone.utc) < timestamp and asset.status in ("in_review", "changes_requested"))
-    cycles = [(asset.approved_at - asset.submitted_at).total_seconds() / 3600 for asset in records if asset.approved_at and asset.submitted_at]
+    counts = Counter()
+    project_counts = defaultdict(Counter)
+    reviewer_counts = defaultdict(Counter)
+    cycle_hours = 0
+    cycle_count = 0
+    for asset in records:
+        overdue = bool(asset.due_at and asset.due_at.replace(tzinfo=timezone.utc) < timestamp
+                       and asset.status in ("in_review", "changes_requested"))
+        counts[asset.status] += 1
+        counts["overdue"] += overdue
+        totals = project_counts[asset.project_id]
+        totals["total"] += 1
+        totals[asset.status] += 1
+        totals["overdue"] += overdue
+        if asset.approved_at and asset.submitted_at:
+            cycle_hours += (asset.approved_at - asset.submitted_at).total_seconds() / 3600
+            cycle_count += 1
+        if asset.status == "in_review" and asset.stages:
+            version = asset.versions[-1].number
+            decided = {item.reviewer_id for item in asset.decisions
+                       if item.version == version and item.stage_index == asset.current_stage}
+            for reviewer_id in set(asset.stages[asset.current_stage].reviewer_ids) - decided:
+                reviewer_counts[reviewer_id]["assigned"] += 1
+                reviewer_counts[reviewer_id]["overdue"] += overdue
     summary = {"totalAssets": len(records), "inReview": counts["in_review"], "approved": counts["approved"], "draft": counts["draft"],
-               "changesRequested": counts["changes_requested"], "overdue": sum(overdue(asset) for asset in records),
+               "changesRequested": counts["changes_requested"], "overdue": counts["overdue"],
                "approvalRate": round(counts["approved"] / len(records) * 100, 1) if records else 0,
-               "averageCycleHours": round(sum(cycles) / len(cycles), 1) if cycles else 0}
+               "averageCycleHours": round(cycle_hours / cycle_count, 1) if cycle_count else 0}
     by_project = []
-    for project in projects.accessible(member):
-        selected = [asset for asset in records if asset.project_id == project.id]
-        by_project.append({"id": str(project.id), "name": project.name, "color": project.color, "total": len(selected),
-                           "approved": sum(asset.status == "approved" for asset in selected),
-                           "inReview": sum(asset.status == "in_review" for asset in selected), "overdue": sum(overdue(asset) for asset in selected)})
-    visible_members = set(value for project in projects.accessible(member) for value in project.member_ids)
+    for project in visible_projects:
+        totals = project_counts[project.id]
+        by_project.append({"id": str(project.id), "name": project.name, "color": project.color, "total": totals["total"],
+                           "approved": totals["approved"], "inReview": totals["in_review"], "overdue": totals["overdue"]})
+    visible_members = set(value for project in visible_projects for value in project.member_ids)
     workload = []
     for reviewer in people.members_by_ids(visible_members):
-        assigned = [asset for asset in records if asset.status == "in_review" and asset.stages and reviewer.id in asset.stages[asset.current_stage].reviewer_ids
-                    and not any(item.version == asset.versions[-1].number and item.stage_index == asset.current_stage and item.reviewer_id == reviewer.id for item in asset.decisions)]
-        workload.append({"reviewer": member_json(reviewer), "assigned": len(assigned), "overdue": sum(overdue(asset) for asset in assigned)})
+        totals = reviewer_counts[reviewer.id]
+        workload.append({"reviewer": member_json(reviewer), "assigned": totals["assigned"], "overdue": totals["overdue"]})
     event_counts = Counter(event.created_at.date().isoformat() for event in repository.approval_events([asset.id for asset in records], timestamp - timedelta(days=7)))
     trend = [{"date": (timestamp - timedelta(days=day)).date().isoformat(), "approvals": event_counts[(timestamp - timedelta(days=day)).date().isoformat()]} for day in range(6, -1, -1)]
     return {"summary": summary, "byProject": by_project, "workload": workload, "trend": trend}
@@ -129,10 +149,11 @@ def csv_cell(value):
 
 
 def export_csv(member, params):
-    records = assets.filtered(member, params)
+    visible_projects = list(projects.accessible(member))
+    records = repository.export_assets(assets.filtered(member, params, visible_projects))
     if records.count() > 10000:
         raise AppError(422, "EXPORT_TOO_LARGE", "Narrow your filters to export at most 10,000 assets.")
-    project_names = {project.id: project.name for project in projects.accessible(member)}
+    project_names = {project.id: project.name for project in visible_projects}
     output = io.StringIO(newline="")
     writer = csv.writer(output)
     writer.writerow(["Asset", "Project", "Type", "Status", "Version", "Due", "Approved"])

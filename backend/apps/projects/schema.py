@@ -28,9 +28,8 @@ def project_input(data, partial=False):
     return result
 
 
-def project_json(project):
-    from .repository import asset_counts
-    count, approved = asset_counts(project)
+def project_json(project, counts=(0, 0)):
+    count, approved = counts
     return {"id": str(project.id), "name": project.name, "description": project.description, "color": project.color,
             "memberIds": [str(value) for value in project.member_ids], "archived": project.archived,
             "assetCount": count, "approvedCount": approved}

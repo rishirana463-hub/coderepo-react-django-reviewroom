@@ -5,6 +5,12 @@ from . import repository
 from .schema import project_input, project_json
 
 
+def list_projects(member):
+    projects = list(repository.accessible(member).order_by("created_at"))
+    counts = repository.asset_counts([project.id for project in projects])
+    return [project_json(project, counts.get(project.id, (0, 0))) for project in projects]
+
+
 def create(member, data):
     require_editor(member)
     fields = project_input(data)
@@ -31,4 +37,4 @@ def update(member, project_id, data):
     repository.save(project)
     from apps.insights.services import record
     record(member, project, "project_updated", f"updated {project.name}")
-    return project_json(project)
+    return project_json(project, repository.asset_counts([project.id]).get(project.id, (0, 0)))

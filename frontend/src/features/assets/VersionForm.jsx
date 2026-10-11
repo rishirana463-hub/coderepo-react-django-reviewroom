@@ -52,7 +52,7 @@ export default function VersionForm({ asset, mutate, onClose }) {
 										aria-pressed={mediaPath === path}
 										onClick={() => setMediaPath(path)}
 									>
-										<img src={path} alt={label} loading="lazy" />
+										<img src={path} alt={label} loading="lazy" decoding="async" />
 									</button>
 								))}
 							</div>

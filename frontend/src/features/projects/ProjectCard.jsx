@@ -13,7 +13,7 @@ export default function ProjectCard({ project, people = [], onOpen }) {
 	return (
 		<button className="project-card" onClick={() => onOpen(project.id)}>
 			<div className="project-cover">
-				<img src={projectCover(project)} alt={`${project.name} project cover`} loading="lazy" />
+				<img src={projectCover(project)} alt={`${project.name} project cover`} loading="lazy" decoding="async" />
 				<span className="project-cover-tag">{project.archived ? "Archived" : "In progress"}</span>
 			</div>
 			<div className="project-card-body">

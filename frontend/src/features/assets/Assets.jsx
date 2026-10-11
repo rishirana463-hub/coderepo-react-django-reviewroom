@@ -27,6 +27,11 @@ export default function Assets({
 		sort: "updated",
 	}));
 	const [page, setPage] = useState(1);
+	const [debouncedSearch, setDebouncedSearch] = useState(search);
+	useEffect(() => {
+		const timer = setTimeout(() => setDebouncedSearch(search), 250);
+		return () => clearTimeout(timer);
+	}, [search]);
 	const [saveOpen, setSaveOpen] = useState(false);
 	const [viewName, setViewName] = useState("");
 	const [saving, setSaving] = useState(false);
@@ -40,8 +45,8 @@ export default function Assets({
 		}));
 		setPage(1);
 	}, [query, projectId]);
-	useEffect(() => setPage(1), [search]);
-	const activeFilters = { ...filters, q: search, ...(reviews ? { assigneeId: user.id } : {}), page, pageSize: 12 };
+	useEffect(() => setPage(1), [debouncedSearch]);
+	const activeFilters = { ...filters, q: debouncedSearch, ...(reviews ? { assigneeId: user.id } : {}), page, pageSize: 12 };
 	const resource = useResource(`/assets?${queryString(activeFilters)}`, null, refreshKey);
 	const savedViews = useResource("/saved-views", [], refreshKey);
 	const update = (key, value) => {
@@ -69,7 +74,7 @@ export default function Assets({
 	}
 	async function exportCsv() {
 		try {
-			await download(`/reports/export.csv?${queryString(activeFilters)}`, "reviewroom-assets.csv");
+			await download(`/reports/export.csv?${queryString({ ...activeFilters, q: search })}`, "reviewroom-assets.csv");
 			notify("Your asset report is ready.");
 		} catch (error) {
 			notify(error.message, "error");

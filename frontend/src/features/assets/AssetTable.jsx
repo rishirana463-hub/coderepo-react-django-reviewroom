@@ -34,7 +34,7 @@ export default function AssetTable({ assets = [], onOpen, people = [], compact =
 									<button className="asset-name-button" onClick={() => onOpen(asset.id)}>
 										<span className={`asset-thumb ${asset.type === "copy" ? "copy-thumb" : ""}`}>
 											{asset.thumbnail ? (
-												<img src={asset.thumbnail} alt="" loading="lazy" />
+												<img src={asset.thumbnail} alt="" loading="lazy" decoding="async" />
 											) : (
 												<Icon name={asset.type === "image" ? "image" : "file"} size={22} />
 											)}

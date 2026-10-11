@@ -33,7 +33,12 @@ def active_reviewers(project):
             for stage in asset.stages for reviewer in stage.reviewer_ids}
 
 
-def asset_counts(project):
+def asset_counts(project_ids):
     from apps.assets.models import Asset
-    query = Asset.objects(project_id=project.id)
-    return query.count(), query.filter(status="approved").count()
+    if not project_ids:
+        return {}
+    rows = Asset.objects(project_id__in=project_ids).aggregate({"$group": {
+        "_id": "$project_id", "total": {"$sum": 1},
+        "approved": {"$sum": {"$cond": [{"$eq": ["$status", "approved"]}, 1, 0]}},
+    }})
+    return {row["_id"]: (row["total"], row["approved"]) for row in rows}

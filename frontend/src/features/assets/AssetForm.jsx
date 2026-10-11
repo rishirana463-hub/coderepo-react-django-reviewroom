@@ -130,7 +130,7 @@ export default function AssetForm({ projects, projectId, people, user, onClose, 
 										aria-pressed={fields.mediaPath === path}
 										onClick={() => setFields((previous) => ({ ...previous, mediaPath: path }))}
 									>
-										<img src={path} alt={label} loading="lazy" />
+										<img src={path} alt={label} loading="lazy" decoding="async" />
 									</button>
 								))}
 							</div>
