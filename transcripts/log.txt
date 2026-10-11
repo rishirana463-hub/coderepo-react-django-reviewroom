@@ -1,0 +1,1017 @@
+## [2026-10-11T01:37:12.0067664+05:30] Read-only reference stack and application proposal review
+
+User Prompt (verbatim, secrets redacted):
+Read-only task: inspect the public reference repository https://github.com/ProblemSetters/coderepo-react-django-calendar (via web or remote reads, do not clone into shared workspace or edit files). Identify actual stack version baselines, directory structure, key setup/build scripts. Recommend one realistic 5-10 capability application domain suitable for approval and troubleshooting assessment; avoid incident management exemplar. Report concise findings with primary source URLs. Workspace is empty; application development must wait for user's required Discord idea approval.
+
+Agent Response Summary:
+Inspected the public reference repository using read-only remote requests and reported pinned versions, directory structure, setup commands, and missing root lint/build scripts. Recommended an inventory and purchasing application, which the parent later excluded under the Google guidelines' crowded categories. After the starter was cloned, read AGENTS.md fully and checked the shared log for this repository's agreement; onboarding remains pending, so no product development was performed.
+
+Actions:
+* Invoked web tools to read the public reference README, frontend and root manifests, Python requirements, setup script, and HackerRank configuration.
+* Invoked a read-only GitHub tree API request to inspect the reference directory structure; no repository was cloned by this agent.
+* Read the current workspace AGENTS.md and appended this transcript entry to the external shared log.
+
+Context:
+tool=Codex /root/proposal_review
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+## [2026-10-11T01:37:18.419+05:30] SESSION START
+
+Agent: Codex /root
+Repo Root: C:\Users\rishi\Downloads\Design and build a React and Django App
+Branch: main
+Worktree: main
+Parent Agent: none
+Stack: django
+
+## [2026-10-11T01:37:18.419+05:30] Preparation and required approval
+
+User Prompt (verbatim, secrets redacted):
+We are recruiting top-tier full-stack developers to design robust web systems on a React and Django stack. Your completed software will form the base of a HackerRank technical test, where we strategically inject system defects to evaluate candidates' troubleshooting skills.
+
+Your task is to build a full-stack application that replicates the functionality of a real-world product. Before starting, share your proposed application idea for approval on the discord channel. Refer to the [Guidelines doc](https://docs.google.com/document/d/1IFnzjWgUGyjajWJoBvrIuma7khVzubeFDU-40wsVY2g/edit?tab=t.0) when proposing your application idea.
+
+**Application Requirements**
+
+The example below demonstrates the expected depth and complexity. It does not prescribe the application you must build. You may propose an application in any domain, provided it offers comparable technical depth and realistic workflows.
+
+Example Application: Incident Management Platform
+
+An incident management and on-call operations platform is one example of an appropriate application.
+
+The platform could include:
+
+- Service Management: Organize services, teams, ownership, and operational dependencies.
+- Alert Triage: Receive, group, prioritize, acknowledge, and resolve alerts.
+- Incident Management: Track incidents through investigation, mitigation, and resolution.
+- On-Call Scheduling: Manage rotations, overrides, handoffs, and scheduling conflicts.
+- Escalation Policies: Notify responders based on configurable escalation rules and acknowledgement windows.
+- Incident Workflows: Coordinate responders, status updates, notes, and resolution activities.
+- Operational Analytics: Report on response times, incident trends, service reliability, and escalation performance.
+
+To get started, clone the [**starter repository**](https://github.com/ProblemSetters/react-django-application-guidelines). This repo includes a reference calendar app that demonstrates our expected structure, best practices, and code quality standards.
+
+**Acceptance Criteria**
+
+- **Core Features:** Build 5 to 10 capabilities, such as service management, incident management, on-call scheduling, escalation policies, alert triage, incident workflows, or post-incident analytics.
+- **End-to-End Functionality:** All primary user paths must be fully operational from start to finish.
+- **Human Judgment:** AI coding companions are allowed, but design decisions, feature scope, and production readiness must reflect your personal expertise.
+- **UI/UX:** Deliver a polished, modern, and professional user interface.
+- **Clean Build:** The application must install, build, and execute without errors on a clean environment.
+- **Dependencies:** Tech stack and core dependencies must meet or exceed the version baselines set by the sample repo.
+- **Project Structure:** Follow the reference repository layout precisely.
+
+**Submission**
+
+- Set up a private repository on GitHub to host your project.
+- Place any authored skills within `/skills`.
+- Store your complete AI interaction sessions under `/transcripts` for transparency.
+- Run the repo validation skill beforehand to ensure your project passes automated sanity checks.
+- Invite `content.team@problemsetters.com` as a private repository collaborator.
+- Notify the team in Discord as soon as your task is submitted!
+
+**Note**
+
+- Under no circumstances should the repo be exposed publicly.
+- Be prepared to transfer complete repository ownership upon final acceptance.
+
+Polish this project for production. Work in phases, in order. After each phase, run \`npm run lint\` and \`npm run build\`, fix any errors, and make one git commit with a clear message.\
+\
+Phase 1 - Audit: find bugs, dead code, unused deps/imports, duplicated logic. Fix them. Split oversized components. Keep behavior and design identical.\
+\
+Phase 2 - Responsive: check all pages at 360px, 768px, 1280px. Fix overflow, spacing, tap targets.\
+\
+Phase 3 - Performance: lazy-load images, trim bundle size, memoize where it matters, simplify heavy Framer Motion animations.\
+\
+Phase 4 - Accessibility & SEO: alt text, semantic HTML, aria labels, focus states, meta and OG tags.\
+\
+Phase 5 - Security: scan for exposed secrets/keys. Ensure .env is in .gitignore.\
+\
+Phase 6 - Docs: write a concise README (overview, stack, setup, scripts, Vercel deploy).\
+\
+Rules: don't touch unrelated files, don't add new dependencies unless essential, and don't assume anything works without running it.\
+\
+Final report (max 10 lines): what changed per phase, build size before/after, and anything you skipped or are unsure about.
+
+\## Progress tracking\
+\- Keep \`PROGRESS.md\` at the repo root.\
+\- Update it after every phase or meaningful step, before moving on.\
+\- Format: Done / In progress / Next / Notes (decisions, skipped items, known issues).\
+\- At the start of every session, read \`PROGRESS.md\` first and continue from it. Never redo Done items.
+
+Track progress in PROGRESS.md: update it after every phase (Done / In progress / Next / Notes), and commit it with the phase. If it already exists, read it first and continue from there.
+
+
+Agent Response Summary:
+The starting workspace was empty, so the authorized starter repository and separate calendar reference were cloned. The linked Google guidelines and repository contract were read, and a concrete eight-capability Reviewroom proposal and PROGRESS.md were prepared without implementing product code. No onboarding agreement exists, so the exact required agreement and Discord channel are pending. All six production-polish phases, lint/build verification, private submission setup, and delivery remain pending; no phase was marked complete and no code was pushed.
+
+Actions:
+* Inspected workspace and Git state.
+* Cloned starter into the current workspace and calendar reference into its sibling reference directory.
+* Read linked Google guidelines through Google Drive and searched plugins for Discord.
+* Delegated a read-only reference baseline review to /root/proposal_review.
+* Created PROGRESS.md and APPLICATION_PROPOSAL.md as preparation records.
+* Read AGENTS.md and checked the external log; no AGREEMENT RECORDED entry was found.
+
+Context:
+tool=Codex /root
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=none
+
+## [2026-10-11T01:38:17.188+05:30] ONBOARDING COMPLETE
+
+AGREEMENT RECORDED: C:\Users\rishi\Downloads\Design and build a React and Django App
+Agent: Codex /root
+Stack: django
+System Time: 2026-10-11T01:38:17.188+05:30
+
+## [2026-10-11T01:38:17.188+05:30] Agreement and proposal channel clarification
+
+User Prompt (verbatim, secrets redacted):
+<send_user_message_question_reply>
+[{"questionItemId":"[\"request_user_input_async\",\"call_93f70732d9a84900b2ef3c403ba7996e\",0]","question":"The starter repository’s AGENTS.md requires an explicit onboarding agreement before further work. After reviewing the seven rules above, reply exactly “I agree” to proceed.","answer":"I agree"},{"questionItemId":"[\"request_user_input_async\",\"call_93f70732d9a84900b2ef3c403ba7996e\",1]","question":"Which Discord channel should receive the Reviewroom proposal? Please provide its channel URL. If you intended to polish an existing application instead, also provide its repository URL or local folder path.","answer":"wht u like"}]
+</send_user_message_question_reply>
+
+Agent Response Summary:
+The user's explicit I agree response satisfies repository onboarding and was recorded. Reviewroom remains the proposed product; the ambiguous channel answer does not identify a Discord destination or establish team approval. The next step is read-only discovery of available browser context and safe reference-environment preparation, while application development remains gated by the user's original Discord approval requirement.
+
+Actions:
+* Read PROGRESS.md first and re-read AGENTS.md.
+* Recorded the exact onboarding agreement in the external append-only log.
+* Began checking available Discord browser context and local runtimes.
+
+Context:
+tool=Codex /root
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=none
+
+## [2026-10-11T01:39:03.2271498+05:30] SESSION START
+
+Agent: Codex /root/proposal_review
+Repo Root: C:\Users\rishi\Downloads\Design and build a React and Django App
+Branch: main
+Worktree: main
+Parent Agent: /root
+Stack: django
+## [2026-10-11T01:39:40.769+05:30] Discord approval requirement removed
+
+User Prompt (verbatim, secrets redacted):
+<send_user_message_question_reply>
+[{"questionItemId":"[\"request_user_input_async\",\"call_30a9347c39824f229eeddc72bffa4de2\",0]","question":"I’ll use Reviewroom. Please send your team’s Discord channel link so I can post the proposal for the approval required by your brief. If you want to remove that requirement, reply “Skip Discord approval and build Reviewroom.”","answer":"skip"}]
+</send_user_message_question_reply>
+
+Agent Response Summary:
+The user's skip answer directly responds to the offered removal of the Discord approval requirement and authorizes building Reviewroom now. Implementation will preserve the reference stack and feature-oriented structure and proceed through the six ordered polish phases. Backend and frontend development are delegated in parallel with clear file ownership while root prepares runtime setup and integration.
+
+Actions:
+* Read PROGRESS.md and reference configuration.
+* Removed the pending Discord approval gate according to the user's explicit instruction.
+* Began application implementation and runtime preparation.
+
+Context:
+tool=Codex /root
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=none
+
+
+## [2026-10-11T01:40:15.2417013+05:30] SESSION START
+
+Agent: Codex /root/backend
+Repo Root: C:\Users\rishi\Downloads\Design and build a React and Django App
+Branch: main
+Worktree: main
+Parent Agent: /root
+Stack: django
+## [2026-10-11T01:40:28.5618432+05:30] Read-only installed runtime discovery
+
+User Prompt (verbatim, secrets redacted):
+Read-only runtime discovery while root waits for required Discord destination/team approval. User answered exact I agree and it is now recorded for this repo. Read PROGRESS.md first, then AGENTS.md; use shared external log at home-relative hackerrank_react_django_application/log.txt and parent_agent=/root. Find compatible already-installed Python (target 3.12), Bun >=1.3, uv, mongod/mongosh, and a functional Bash on Windows using paths such as user .bun/bin, .local/bin, Program Files, AppData Local Programs, Python launchers, and bundled workspace dependencies if useful. Do not download/install, run app, edit tracked files or read credentials. Report available exact paths/versions and missing prerequisites. Log your own task after finishing.
+
+Agent Response Summary:
+Read PROGRESS.md first and AGENTS.md in full, confirmed this repository's onboarding agreement, and appended a session-start entry. Located and verified bundled Python 3.12.14 and Git Bash 5.2.26; the system Python launcher additionally lists Python 3.14.2 and Store Python 3.13. Bun, uv, mongod, and mongosh were not found in PATH or the targeted user, Program Files, WinGet, Python Scripts, and bundled runtime directories. No downloads, installs, application launches, tracked-file edits, or credential reads occurred.
+
+Actions:
+* Read PROGRESS.md and AGENTS.md; checked the external log only for the exact agreement marker.
+* Called load_workspace_dependencies and inspected executable filenames in standard installation directories.
+* Invoked Python and Bash version commands, the Python launcher inventory, a harmless Bash printf, and a MongoDB service-name query.
+* Appended this UTF-8 LF entry to the shared external log using the platform home-directory API.
+
+Context:
+tool=Codex /root/proposal_review
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+## [2026-10-11T01:40:35.1292912+05:30] SESSION START
+
+Agent: Codex frontend
+Repo Root: C:\Users\rishi\Downloads\Design and build a React and Django App
+Branch: main
+Worktree: main
+Parent Agent: /root
+Stack: django
+
+## [2026-10-11T01:46:54.0840771+05:30] Portable runtime installation and reference execution baseline
+
+User Prompt (verbatim, secrets redacted):
+User replied skip, explicitly removing Discord gate; building Reviewroom now. Please prepare essential runtime infrastructure in parallel: install official portable Bun >=1.3, uv and MongoDB8 outside repo (task-specific home runtime/cache directory; official vendor/package registry downloads only, no repo dependency changes). Use verified bundled Python3.12 path. No security setting modifications; Mongo bind127.0.0.1 dedicated app DB and task dbpath; start only own Mongo process WindowStyle Hidden if Start-Process. Return paths/versions and process info. Then run calendar reference exact declared bun install && bash setup.sh --seed, bun start using environment cross-platform if feasible, inspect live frontend/API baseline. Root creates cross-platform setup wrapper for new app because Unix .venv/bin/python script fails Windows. You may make ignored local reference .env/.venv artifacts, do not alter tracked reference or app files. Record exact-command limitations instead of claiming success; safe alternate reference run allowed for study but distinguish. Need progress updates quickly and own log. No root/agent code file edits.
+
+Agent Response Summary:
+Installed publisher-checksummed official portable Bun 1.4.3, uv 0.13.0, and MongoDB Community 8.0.32 under the home-relative .cache/reviewroom-runtime directory, without changing system settings or tracked files. Started only the task's hidden MongoDB process (PID 18980) on 127.0.0.1:27017 with a dedicated task data directory. Exact reference install and start commands both failed at the Linux-only .venv/bin/python path; a clearly distinguished Windows alternate installed requirements, seeded a separate reviewroom_reference database, and launched Django/Vite temporarily. Verified live health, browser login, calendars, events, and daily insights with observed HTTP 200 responses and no page errors; reference build passed with JS 310.66 kB (92.73 kB gzip) and CSS 94.47 kB (16.89 kB gzip). Stopped all owned reference web processes, left task MongoDB available, and verified the reference tracked working tree remains clean.
+
+Actions:
+* Read PROGRESS.md and confirmed the external agreement marker for this repository.
+* Read official Bun/uv/MongoDB release indexes and downloaded their official Windows archives; checked every archive against publisher-provided SHA-256 values before extracting outside the repo.
+* Started the task MongoDB process hidden with loopback binding and .cache/reviewroom-runtime/mongo-data; did not register a service or modify security settings.
+* Attempted exact bun install && bash setup.sh --seed and bun start; both setup invocations failed at .venv/bin/python after successful package installation/Mongo readiness.
+* Used ignored reference .venv and .env artifacts for the Windows alternate; seeded 5 profiles/accounts, 11 calendars, and 186 events into the dedicated reference database.
+* Ran HTTP health checks, bundled Playwright with installed Edge headless, and Vite production build; inspected a desktop screenshot saved outside the repo.
+* Stopped owned reference web processes 29540, 23476, 21660, 10212, and 9376; verified ports 3000/8000 were freed and git status was clean.
+* Appended this sanitized UTF-8 LF transcript entry to the shared external log using the platform home-directory API.
+
+Context:
+tool=Codex /root/proposal_review
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+## [2026-10-11T01:47:16.130+05:30] Collaborator identity unavailable
+
+User Prompt (verbatim, secrets redacted):
+<send_user_message_question_reply>
+[{"questionItemId":"[\"request_user_input_async\",\"call_7knYZL7LaYHDKfxWjJMiQgwq\",0]","question":"The private repository is created. GitHub’s API needs a username to invite content.team@problemsetters.com, and the browser isn’t signed in. Do you have the team’s GitHub username? I’ll continue building while this is pending.","answer":"no"}]
+</send_user_message_question_reply>
+
+Agent Response Summary:
+The user does not have the team's GitHub username. The collaborator invitation remains pending because the official REST API requires a username and no signed-in browser invitation form is available; no invitation is claimed. Full application implementation and ordered polish continue independently.
+
+Actions:
+* Recorded the user clarification without repeating the question.
+* Continued frontend/backend implementation and independent startup-script audit.
+
+Context:
+tool=Codex /root
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=none
+
+
+## [2026-10-11T01:51:32.5622218+05:30] Reviewroom backend implementation and verification
+
+User Prompt (verbatim, secrets redacted):
+Build Reviewroom backend now, user explicitly replied skip to removing Discord approval gate. Read PROGRESS.md first and AGENTS.md; onboarding recorded. Own backend/** ONLY (root owns scripts/setup/config, frontend other agent). Follow reference ../coderepo-react-django-calendar-reference backend feature structure; preserve pinned requirements, Django/DRF/MongoEngine/JWT/bcrypt; no new deps. Implement robust complete API + seed + meaningful integration tests. Eight capabilities in APPLICATION_PROPOSAL.md; pragmatic scope: auth login/me/logout if JWT (revoke if logout route); seeded users owner/editor/reviewer; projects create/list/update/archive with access; assets list/filter/page/create/detail immutable versioning with optimistic revision; comments version-specific anchor/thread/resolve; ordered staged approvals exact-version binding quorum/changes requested/new version reset; assignment/deadlines reminder inbox idempotent; saved views CRUD; audit timeline/inbox mark read; reporting CSV and JSON export approved manifest. API /api/v1. Coordinate API contract with frontend agent via collaboration directly after initial design. Prefer simple MongoEngine documents, thin views services repository, centralized validation/errors/auth, role project authorization all routes, safe exports, proper HTTP statuses 401/403/404/409/422. Use local generated SVG selection assets (frontend creates). Realistic deterministic seed ~12 assets across 4 projects and history to populate UI. Python runtime discovered C:/Users/rishi/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe. Root installs .venv and Mongo/Bun. Keep settings package name calendar_backend for exact ref readonly paths if easiest; product naming UI Reviewroom. Env secrets generated by root setup no hardcodes, DEBUG false production, allowed origins env. Expose /health with mongo status. Seed scripts clear product collections. Handle no DATABASES ORM. Do not git commit; root makes one per phase. Log your own work append-only home/hackerrank_react_django_application/log.txt parent_agent=/root. Notify root/frontend API contract quickly, then implement.
+
+Agent Response Summary:
+Implemented the eight-capability Django/DRF/MongoEngine API with feature-oriented models, repositories, schema, services, views and URL modules while preserving pinned dependencies. Atomic document revision checks protect version history, staged quorum decisions, concurrent updates and feedback; authorization applies to every project, asset, report and inbox route. Added revocable JWT sessions, validation, safe CSV exports, exact-version approved manifests, deterministic demo records and twelve integration tests against a disposable local MongoDB database; all twelve tests and Django system checks pass.
+
+Actions:
+* Read PROGRESS.md, AGENTS.md, proposal, reference backend and shared onboarding log.
+* Created backend configuration, auth, projects, assets, reviews, insights, seed scripts and integration tests.
+* Shared API contract directly with the frontend agent and root.
+* Ran Django system checks and twelve real-Mongo integration tests successfully.
+
+Context:
+tool=Codex /root/backend
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+
+## [2026-10-11T01:53:07.7074806+05:30] Isolate test MongoDB URI safely
+
+User Prompt (verbatim, secrets redacted):
+Phase1 audit safety bug in apps/tests.py: TEST_MONGODB_URI allows localhost URI containing database path (e.g mongodb://127.0.0.1:27017/reviewroom_db). mongoengine.connect(cls.test_db,host=uri) may take URI db over cls.test_db => setUp drop_collection can hit live db. Make URI explicit dedicated cls.test_db by urlsplit _replace(path='/' + cls.test_db).geturl(), connect(host=safe_uri); preserve auth/query if needed, reject remote host still. Add meaningful regression that configuration cannot select application DB if feasible. Also audit all APIs unknown/malformed values -> non500 and concurrency/read models quickly. Do not optimize/perf untilPhase3. Own backend only no commits/log required.
+
+Agent Response Summary:
+Fixed integration-test setup so a database embedded in TEST_MONGODB_URI cannot override the disposable test database. Added a regression for URI rewriting and local-host restriction, plus a runtime assertion before collection resets. Ran thirteen passing tests with TEST_MONGODB_URI deliberately referencing the application database, then reviewed API validation and concurrency without performance changes.
+
+Actions:
+* Updated backend/apps/tests.py.
+* Ran thirteen integration tests against a dedicated reviewroom_test process database.
+
+Context:
+tool=Codex /root/backend
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+## [2026-10-11T01:53:26.4423972+05:30] Phase 1 root script and configuration audit
+
+User Prompt (verbatim, secrets redacted):
+Thanks. Once reference processes stopped (keep task Mongo18980), independently audit ROOT scripts/config only (scripts/*.mjs package.json .gitignore hackerrank.yml .vscode etc). Product is still in Phase1. You may fix root scripts/config bugs except PROGRESS.md (root updates) and no backend/frontend owned edits. Key need exact un install && bash setup.sh --seed, un start cross-platform Windows/Linux, npm lint/build; root uses Vite existing transformWithOxc for dependency-free lint import syntax (honest scope), native Node start wrappers to resolve isolated workspace deps. Mongo local created externally, readiness script can start mongod PATH. Need check setup env safe defaults, seed startup, child-process shutdown, frontend waits API. Already .venv requirements installed, bun install initially rxjs link failure corrected frozen retry. Run checks only after backend seed ready; coordinate root. Document actual reference study then root owns PROGRESS. Do not commit. Log required.
+
+Agent Response Summary:
+Audited only root scripts/configuration and corrected seeding to execute the backend module with its required working directory. Strengthened cleanup of owned child process trees while preserving Django's required autoreloader; a real Windows child/grandchild lifecycle probe left no surviving processes. Expanded the dependency-free lint command using Vite's existing parser to resolve extensionless/index imports and conservatively report unused imports without mistaking JSX components, member keys, or property keys for unrelated references. Restored explicit cross-platform virtualenv interpreter paths in the debugger configuration. After explicit backend seed readiness, exact bun install && bash setup.sh --seed passed and seeded 5 members, 4 projects, and 16 assets; app start and full lint/build are deferred to frontend readiness/root integration coordination.
+
+Actions:
+* Read PROGRESS.md first and inspected root package/setup/HackerRank/ignore/debugger/scripts configuration.
+* Edited scripts/runtime.mjs, scripts/setup.mjs, scripts/lint.mjs, package.json, and .vscode/launch.json; added scripts/seed.mjs.
+* Preserved frontend/backend file ownership, Django autoreloader behavior, PROGRESS.md ownership, existing dependencies, and the task MongoDB process.
+* Verified owned Windows child/grandchild termination with no survivors; root script syntax and JSON configuration checks passed for 8 scripts.
+* Ran exact bun install && bash setup.sh --seed successfully after explicit backend readiness; held ports 3000/8000 free for root integration.
+* Linux path and process-group cleanup were inspected but could not be executed on this Windows host; no Linux success is claimed.
+* Appended this sanitized UTF-8 LF task entry to the shared external transcript log; made no git commit.
+
+Context:
+tool=Codex /root/proposal_review
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+## [2026-10-11T01:53:52.9032411+05:30] Corrected verbatim Phase 1 root audit delegation
+
+User Prompt (verbatim, secrets redacted):
+Thanks. Once reference processes stopped (keep task Mongo18980), independently audit ROOT scripts/config only (scripts/*.mjs package.json .gitignore hackerrank.yml .vscode etc). Product is still in Phase1. You may fix root scripts/config bugs except PROGRESS.md (root updates) and no backend/frontend owned edits. Key need exact `bun install && bash setup.sh --seed`, `bun start` cross-platform Windows/Linux, npm lint/build; root uses Vite existing transformWithOxc for dependency-free lint import syntax (honest scope), native Node start wrappers to resolve isolated workspace deps. Mongo local created externally, readiness script can start mongod PATH. Need check setup env safe defaults, seed startup, child-process shutdown, frontend waits API. Already .venv requirements installed, bun install initially rxjs link failure corrected frozen retry. Run checks only after backend seed ready; coordinate root. Document actual reference study then root owns PROGRESS. Do not commit. Log required.
+
+Agent Response Summary:
+This append-only correction preserves the exact delegated prompt because the prior entry used an expandable PowerShell heredoc that interpreted literal backticks in the prompt. The implementation outcome is unchanged: corrected backend-module seeding, improved owned child-tree cleanup, expanded conservative parser-based lint checks, and restored cross-platform debugger interpreter paths. Exact Windows install/setup, a real Windows child/grandchild shutdown probe, and root syntax/JSON checks passed; full integration checks await frontend readiness. The original entry remains untouched as required by the append-only rule.
+
+Actions:
+* Appended this correction using a literal heredoc and explicit placeholder replacement to preserve prompt backticks verbatim.
+* No old log content, repository files, processes, or test results were changed by this correction.
+
+Context:
+tool=Codex /root/proposal_review
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+## [2026-10-11T01:58:44.1403645+05:30] Read-only UI and public API integration gap audit
+
+User Prompt (verbatim, secrets redacted):
+Root live backend now running npm dev:backend tool session6992 port8000 (not yours; do not stop). 33 live API requests passed; evidence ~/.cache/reviewroom-runtime/api-smoke.json, validation temporary project+asset remain to be removed via full-start reseed. Please independently inspect actual UI/API coverage current source while frontend finishes CSS (about10min). Read-only frontend/backend code, compare every public backend product route to reachable frontend consumer; identify missing capabilities/states or wrong payload. Send frontend direct concrete findings so fixed before initial build. Do not edit front/backend. You can inspect static needed settings. Root knows ProjectDetail GET route? client uses allprojects list and find => GET/projects/:id backend product route no reachableconsumer! find other unused routes. Propose practical mapping fixes to frontend agent. Keep no commits/log required.
+
+Agent Response Summary:
+Read PROGRESS.md first and compared every current public backend product method/route to its static frontend consumer. All 27 product method/routes have consumers; the unused GET project-detail route had already been removed, leaving owner-only PATCH as the supported detail operation. Identified concrete payload/state gaps and sent actionable findings directly to the frontend agent, including submitted-workflow settings, owner-only project settings, asset-owner reviewer exclusion, archived default projects, archived feedback mutations, saved-view query/assignment/project scope restoration, stage limits, and overdue-state consistency. Root reported several overlapping issues were already queued for integration; no frontend/backend code or data was modified and the root's live backend was untouched. Static coverage is not claimed as browser end-to-end verification; root will perform browser checks when frontend styles are ready.
+
+Actions:
+* Read PROGRESS.md and inspected frontend route composition, API clients, product forms/pages, backend URL/views, schemas, permissions, and service validation.
+* Mapped auth/people, project, asset/version/submission/export, review/comment/reply/resolve, and insights/inbox/reminder/saved-view/report routes to frontend consumers.
+* Sent concrete findings to /root/frontend and status/coverage conclusions to /root through collaboration messages.
+* Flagged skip-link hash-router conflict for later Phase4 accessibility work, plus unused Dashboard import and unused coverFor utility for audit cleanup.
+* Left all files, database records, and live processes unchanged; made no git commit.
+* Appended this sanitized UTF-8 LF entry to the shared external transcript log using the platform home-directory API.
+
+Context:
+tool=Codex /root/proposal_review
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+## [2026-10-11T02:03:04.719057+05:30] Reviewroom frontend implementation and initial verification
+
+User Prompt (verbatim, secrets redacted):
+Build polished Reviewroom React frontend now, user explicitly removed Discord gate with skip. Read PROGRESS.md first, AGENTS.md and APPLICATION_PROPOSAL.md; onboarding recorded. Own frontend/** ONLY, root owns root manifests/runtime/lint/setup, backend agent owns backend/**. Reference ../coderepo-react-django-calendar-reference layout frontend/src/features and shared. React19.2.4 Vite8.2.2 approved dependencies only react/react-dom @fontsource/roboto; native fetch, no added deps/icons/motion. Build sophisticated professional warm-neutral editorial content review workspace: narrow dark-purple/ink sidebar, brand Reviewroom, workspace switch style, top search, subtle violet accent, serif? use local system/Roboto. Dashboard with heading 'Good work starts with clear feedback.' or realistic concise, statistic cards, project cards, review queue assets thumbnails, deadlines, activity. Fully functioning navigation Overview, Projects, All assets, My reviews, Inbox, Reports + project/asset detail with version preview, anchored text feedback/image coordinates, threads resolve/reply, staged approvals/reject/change requests, assign reviewers/deadline, new version, create project/asset dialogs, saved filters, CSV export, inbox mark read, login and seeded credentials. RBAC hide/disable appropriate controls but backend enforces. Coordinate API contract directly with backend agent quickly. Real API persisted every domain workflow (no hardcoded product data/localStorage substitutes). local SVG illustrations/assets allowed create original by code in frontend/public/assets with tasteful covers, no external runtime media. Functional loading/empty/error/success, recover 401, race-safe fetch requests, split components ~<250 lines. Phase1 baseline desktop design; responsive baseline sensible but root will inspect/fix phase2, accessibility/perf later can basics now. Keep frontend package pinned from reference and Vite config proxy localhost:8000 port3000. Do not touch root files and no commits. App root export default can choose, index imports. Note root lint will use TypeScript allowJs checkJs noEmit noUnusedLocals with bundled typescript no dependencies maybe choose JS JSX and avoid unused imports. Add data-testid for meaningful browser/API interactions if helpful. Log work append-only home/hackerrank_react_django_application/log.txt parent_agent=/root. Notify root API/UI structure.
+
+Agent Response Summary:
+Built the complete Reviewroom React workspace using the pinned reference dependencies and feature/shared layout. Connected every product workflow to the agreed Django /api/v1 API, including authenticated role-aware navigation, project and asset management, text/image anchored threads, version history, staged review decisions, saved filters, inbox, reports, and downloads. Created original local SVG artwork and responsive styling without additional dependencies. Incorporated root and peer audit fixes for locked workflows, owner-only settings, self-review prevention, saved views, Unicode anchors, stale sessions, archival behavior, and persisted view state. Initial npm run lint and npm run build both passed; frontend ownership returned to root for browser verification and subsequent polish phases.
+
+Actions:
+* Created frontend/src feature and shared modules, App.jsx, main.jsx, styles.css, index.html, package.json and vite.config.js.
+* Created frontend/public/assets originals, six frontend/public/media SVGs, and favicon.svg.
+* Ran npm run lint successfully (36 JavaScript files plus Python and Django checks).
+* Ran npm run build successfully: JavaScript 261.82 kB (79.02 kB gzip), CSS 91.97 kB (29.63 kB gzip).
+* Coordinated API contract and audit corrections with /root/backend, /root and /root/proposal_review; made no commits.
+
+Context:
+tool=Codex frontend
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+
+
+## [2026-10-11T02:03:05.5847232+05:30] Read-only backend performance plan
+
+User Prompt (verbatim, secrets redacted):
+Prepare READ-ONLY performance plan for Phase3 (do not edit until I authorize after Phase2). Inspect reports full-doc scans, project counts N+1, paginationqueries; propose high-value Mongo projections/aggregate batching and meaningful existingtests to run. Parent phases strictly sequential. Please report current security bugs separately if any for Phase1 audit.
+
+Agent Response Summary:
+Reviewed backend queries without editing application files. Proposed batched project counts, narrow latest-version page projections, one-pass report aggregation, and smaller CSV/event projections while retaining full authorization and exact totals. Separately identified seed validation occurring after destructive reset and unequal dummy-login hashing cost for parent triage; no new critical authorization or exposed-secret bug was found.
+
+Actions:
+* Read backend report, project, asset and authentication repositories/services.
+* Sent performance plan and audit findings to root; awaiting Phase3 authorization.
+
+Context:
+tool=Codex /root/backend
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+
+## [2026-10-11T02:04:07.9336451+05:30] Validate seed configuration before reset
+
+User Prompt (verbatim, secrets redacted):
+Fix Phase1 seed bug NOW: validate configuredpassword and hash before droppingcollections in seed. Onlyseedfiles. Run invalidpasswordprobenodatachange plus relevanttests. Reporthandoff. Saveauthdummy forPhase5/performanceforPhase3.
+
+Agent Response Summary:
+Moved password validation and bcrypt hashing ahead of all destructive collection reset operations, changing only backend/scripts/seed.py. Probed an invalid password and verified unchanged document counts and full-record fingerprints across all six product collections. All thirteen integration tests pass; authentication and performance changes remain deferred to their assigned phases.
+
+Actions:
+* Updated backend/scripts/seed.py.
+* Ran no-data-change invalid-password probe and thirteen integration tests successfully.
+
+Context:
+tool=Codex /root/backend
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+
+## [2026-10-10T20:36:59.194Z] PHASE 1 VERIFICATION CHECKPOINT
+
+Agent: /root
+Actions:
+* Exact Bun install/setup and bun start passed on Windows with real MongoDB.
+* Thirteen integration tests passed; live API smoke covered 41 requests.
+* Browser owner created project/asset, submitted review, posted feedback; reviewer approved and export became enabled, no console errors.
+* Fixed empty-anchor display and date-only local rendering; starter formatting applied using ephemeral authoring tool without application dependency changes.
+* Previous smoke fixtures disappeared after startup seed reset.
+Context:
+tool=Codex
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+parent_agent=none
+## [2026-10-11T02:07:38.5524726+05:30] Phase 1 backend audit and owned-process cleanup correction
+
+User Prompt (verbatim, secrets redacted):
+Please do a read-only Phase1 audit root/backend current source for remaining actionable bugs, unused code, duplication, security-boundary errors. Do not edit. Focus high-confidence issues; I will integrate frontend and commit Phase1. Existing tests13pass, API smoke33+8passed. Send concise findings paths/lines. Work phase1 only.
+
+Agent Response Summary:
+Read PROGRESS.md first and audited current root/backend source without modifying application data or live application processes. Identified that shutdown fallback was canceled on direct-child close, then received explicit parent authorization to fix scripts/runtime.mjs only. Runtime shutdown now awaits descendant cleanup; Windows captures owned PID/creation identities before graceful termination and only forces matching captured survivors, while Unix waits for its owned process group before escalation. Syntax checks and two isolated owned Windows probes passed with zero surviving processes, including SIGTERM-ignoring descendants and a parent exiting during shutdown; Linux execution was unavailable and is not claimed. Also reported the high-confidence auth finding that unknown-account login hashes a dummy password per request in addition to checking it, creating avoidable CPU cost and distinguishable timing; no additional authorization bypass was found.
+
+Actions:
+* Read PROGRESS.md and current scripts, Django settings, auth services, permissions, asset persistence/schema/models, project membership logic, insights persistence, and route composition.
+* With subsequent explicit parent authorization, changed only scripts/runtime.mjs to preserve and await owned descendant shutdown after the direct child exits.
+* Ran root runtime syntax check and isolated Windows process probes: child/grandchild 14744/11788 and parent-exits-during-shutdown 4552/14772; all terminated with zero survivors.
+* Reported the auth dummy-hash timing/cost issue and the unexecuted Linux limitation to /root; handed runtime back for final root lint/build/test and Phase1 commit.
+* Did not modify frontend/backend source or data, stop root application processes, run whole-app checks, or make a commit.
+* Appended this sanitized UTF-8 LF entry to the shared external transcript log using the platform home-directory API.
+
+Context:
+tool=Codex /root/proposal_review
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+
+## [2026-10-11T07:13:18.621Z] CONTINUE PHASE 2
+
+User Prompt (verbatim, secrets redacted):
+<external_codex_apps_open_page>{"page_id":null}</external_codex_apps_open_page>
+
+Agent Response Summary:
+Read the existing progress record and git history. Phase 1 is committed; continuing Phase 2 responsive refinements without repeating completed implementation or onboarding. Transcript logging remains enabled and completed checks are preserved.
+
+Actions:
+* Read PROGRESS.md and git log.
+* Continued mobile spacing and touch-control verification.
+
+Context:
+tool=Codex
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=none
+
+## [2026-10-11T07:13:18.629Z] CONTINUE PHASE 2
+
+User Prompt (verbatim, secrets redacted):
+Read PROGRESS.md and git log. Continue from "In progress" or "Next". Don't redo Done items. Update PROGRESS.md as you go.
+
+Agent Response Summary:
+Read the existing progress record and git history. Phase 1 is committed; continuing Phase 2 responsive refinements without repeating completed implementation or onboarding. Transcript logging remains enabled and completed checks are preserved.
+
+Actions:
+* Read PROGRESS.md and git log.
+* Continued mobile spacing and touch-control verification.
+
+Context:
+tool=Codex
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=none
+
+## [2026-10-11T07:14:00.940Z] SESSION START
+
+Agent: /root/responsive
+Repo Root: C:\Users\rishi\Downloads\Design and build a React and Django App
+Branch: main
+Worktree: main
+Parent Agent: /root
+Stack: django
+
+## [2026-10-11T07:14:00.940Z] Phase 2 responsive continuation
+
+User Prompt (verbatim, secrets redacted):
+Read PROGRESS.md and git log. Continue from "In progress" or "Next". Don't redo Done items. Update PROGRESS.md as you go.
+
+Agent Response Summary:
+Read progress, complete repository instructions, and Git history before continuing Phase 2. Existing CSS edits improve mobile typography and touch targets; will finish only responsive CSS and return ownership to the parent for browser verification and phase commit.
+
+Actions:
+* Read PROGRESS.md, AGENTS.md, Git history and existing responsive CSS diff.
+
+Context:
+tool=/root/responsive
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+
+## [2026-10-11T07:14:16.681Z] REAFFIRMED REPOSITORY INSTRUCTIONS
+
+User Prompt (verbatim, secrets redacted):
+# AGENTS.md instructions for C:\Users\rishi\Downloads\Design and build a React and Django App
+
+<INSTRUCTIONS>
+# AGENTS.md
+
+Build Your Own Full-Stack Application (React + Django). AI Transcript Logging
+
+This file is the single source of truth for any coding agent working in this repo: Claude Code, OpenAI Codex CLI / Codex Cloud, Google Gemini CLI, Google Antigravity, Cursor, Windsurf, opencode, Aider, goose, Factory, RooCode, JetBrains Junie, GitHub Copilot, Devin, or any other AGENTS.md-aware tool.
+
+Read this file in full before taking any action. Obey it exactly.
+
+---
+
+## 0. TLDR FOR THE AGENT
+
+On every session start, do this in order:
+
+1. Read this file completely.
+2. Check the log file (path in §2). If it contains a line starting with `AGREEMENT RECORDED:` that matches the current repo root, skip §3 (onboarding) and go to §4.
+3. Otherwise, run the onboarding flow in §3 with the user.
+4. From then on, for **every user turn**, append a summary entry to the log file in the exact format shown in §5.
+5. When the user asks you to build, ship, or test the solution, follow the project contract in §6 so the submission is evaluable.
+
+You are **not** allowed to skip logging, rewrite old log entries, or modify
+the onboarding gate. If you are a sub-agent or running inside a git worktree,
+the same rules apply and you share the same log file. Pass this context to every sub-agent and worktree.
+
+---
+
+## 1. WHAT THIS APP REPO IS
+
+This is the application repository for the **HackerRank Build Your Own Full-Stack Application** assignment using React + Django (Python). The app is not a timed challenge: there is no start time and no end time.
+
+Build and submit a full-stack application for a problem domain chosen by the participant. Define the product identity, target users, domain model, and five to ten meaningful capabilities. The app is full-stack React + Django (Python), with MongoDB for persistence. All implementation work described by this file belongs to this app.
+
+The feature scope lives in `REQUIREMENTS.md`. The setup and hygiene rules live in `INSTRUCTIONS.md`. The acceptance contract lives in `GUIDELINES.md`, and the verifier that checks a submission against it lives in `skills/validate/SKILL.md`.
+
+You may use any AI assistant, IDE, or tool to write code. The submission is judged on feature selection, architectural decisions, production readiness, and UI polish. Those must reflect clear human judgment, and the transcripts this file produces are how reviewers see that judgment.
+
+---
+
+## 2. LOG FILE. LOCATION AND LIFECYCLE
+
+The log file lives outside the participant's repository, in the user's home directory, so it survives branch switches, worktree creation, and `git clean`.
+
+| Platform | Path |
+|---|---|
+| macOS / Linux | `$HOME/hackerrank_react_django_application/log.txt` |
+| Windows | `%USERPROFILE%\hackerrank_react_django_application\log.txt` |
+
+Rules:
+
+- Must be created if missing, including the parent directory.
+- Must never be committed or added to git while work is in progress.
+- Append-only. Never rewrite, reorder, or delete prior entries.
+- Shared across all agents, sub-agents, and worktrees in this repo.
+- Never log secrets. Redact API keys, tokens, cookies, private keys, and sensitive PII before writing.
+
+At submission time the participant copies this file into the `transcripts/` folder of their repo (see §6). That copy is the only point at which the log enters git.
+
+---
+
+## 3. ONBOARDING FLOW (FIRST RUN ONLY)
+
+Run this flow only if the log file has no `AGREEMENT RECORDED:` line for the current repo root. On subsequent sessions, skip directly to §4.
+
+### 3.1 Greeting
+
+Open with a short, warm message. Example wording:
+
+Welcome to HackerRank Build Your Own Full-Stack Application. You are going to design, build, and ship a full-stack application for a problem domain of your choice using React + Django (Python) and MongoDB on top of the reference calendar repository. Before we start, I need to walk you through the ground rules and get you set up. This takes about a minute.
+
+Display the current system time with local timezone in ISO 8601. Do not compute or mention a deadline. This assignment has none.
+
+### 3.2 Rules. Recite these verbatim
+
+1. This is a **solo** assignment. You must be the author of the submission.
+2. You may use any IDE, AI assistant, or tool to help you build. Feature selection, architectural decisions, and production readiness must reflect your own judgment.
+3. Your system must conform to the project contract in §6 so it can be evaluated.
+4. Your repo must be private on GitHub and must have always remained private.
+5. Never commit secrets. Use environment variables and a `.env` file if needed.
+6. Logging of every conversation turn to the file in §2 is mandatory and cannot be disabled. The log is exported under `/transcripts` at submission.
+7. Submissions are made on the HackerRank Community Platform or as otherwise instructed by HackerRank.
+
+### 3.3 Collect the agreement
+
+Ask the user to reply with the exact string `I agree` (case-insensitive, surrounding whitespace ignored). Do not proceed until they do.
+
+### 3.4 Record the agreement
+
+Append this block to the log file, then continue:
+
+```text
+## [ISO-8601 TIMESTAMP] ONBOARDING COMPLETE
+
+AGREEMENT RECORDED: <repo_root_absolute_path>
+Agent: <agent_name_or_unknown>
+Stack: django
+System Time: <ISO-8601 local time with tz>
+```
+
+The presence of `AGREEMENT RECORDED: <this repo root>` is what future sessions check. Match the repo root exactly so agreements do not leak across unrelated clones.
+
+---
+
+## 4. NORMAL SESSION START (RETURNING USER)
+
+If onboarding is already complete for this repo root:
+
+1. Append a short `SESSION START` entry to the log (§5.1).
+2. Greet the user briefly:
+   > Welcome back. Transcript logging is on for this repo.
+3. Proceed with whatever they ask for.
+
+---
+
+## 5. LOG FORMAT
+
+### 5.1 Session start entry
+
+```text
+## [ISO-8601 TIMESTAMP] SESSION START
+
+Agent: <agent_name_or_unknown>
+Repo Root: <absolute_path>
+Branch: <git_branch_or_unknown>
+Worktree: <worktree_path_or_main>
+Parent Agent: <parent_agent_name_or_none>
+Stack: django
+```
+
+### 5.2 Per-turn entry (append after every user message you respond to)
+
+```text
+## [ISO-8601 TIMESTAMP] <short title, max 80 chars>
+
+User Prompt (verbatim, secrets redacted):
+<exact user message, with secrets replaced by [REDACTED]>
+
+Agent Response Summary:
+<2-5 sentences: what was done, why, and any important decision>
+
+Actions:
+* <file edited / command run / tool invoked>
+
+Context:
+tool=<agent_name>
+branch=<git_branch_or_unknown>
+repo_root=<absolute_path>
+worktree=<worktree_path_or_main>
+parent_agent=<parent_name_or_none>
+```
+
+### 5.3 Sub-agent and worktree rules
+
+- A sub-agent (Task tool, delegated worker, etc.) **must** log its own entries using the same file. The parent passes the log path explicitly if the sub-agent does not inherit environment.
+- Set `parent_agent=` to the parent's name so entries are traceable.
+- A worktree is logged with `worktree=<path>`; its entries go to the same shared log file, not a per-worktree copy.
+- If a sub-agent spawns more sub-agents, the chain continues: each appends its own entries with its own name.
+
+### 5.4 What not to log
+
+- API keys, tokens, session cookies, OAuth codes, private keys.
+- User PII beyond what they explicitly pasted into a prompt.
+- Full contents of large files or binary blobs. Reference by path instead.
+
+---
+
+## 6. PROJECT CONTRACT (EVALUABLE SUBMISSION)
+
+The reviewer finds the participant's work through a **known repo layout**. Do not rename these folders.
+
+### 6.1 Repo layout
+
+```text
+.
+├── AGENTS.md                         # This file, copied into the participant repo
+├── README.md                         # Product identity, stack, structure, run instructions, seeded access
+├── frontend/                         # React app, kept from the sample calendar repo
+├── backend/                          # Django API, kept from the Django reference calendar repo
+├── skills/                           # Any skills the participant created, plus skills/validate from this repo
+├── transcripts/                      # Exported AI transcripts (the §2 log file, plus any tool-native exports)
+├── GUIDELINES.md                     # HackerRank Code Repo guidelines, copied from this repo
+├── hackerrank.yml                    # HackerRank install and run configuration
+└── setup.sh                          # MongoDB readiness and seed reset
+```
+
+### 6.2 Constraints that make the submission evaluable
+
+- **Keep the sample stack.** Do not replace the frontend framework, backend framework, database layer, build tool, or package manager the calendar repo declares.
+- **Install, build, and start from a clean checkout** with the exact commands in `hackerrank.yml`. No manual edits.
+- **Export the log before submission.** Copy the §2 log file to `transcripts/` in the repo root. Do not edit it during the copy.
+- **Read secrets from env vars only.** Never hardcode.
+- **Run the verifier before submitting.** Follow `skills/validate/SKILL.md` and make every applicable check pass.
+
+---
+
+## 7. CROSS-PLATFORM AND AGENT-COMPATIBILITY NOTES
+
+- **Path handling.** Always resolve the log path using the platform's home dir (`os.homedir()` / `pathlib.Path.home()` / `$HOME` / `%USERPROFILE%`). Never hardcode `/Users/...` or `C:\Users\...`.
+- **Line endings.** Write the log in UTF-8 with `\n`. Don't emit `\r\n` even on Windows; most editors render `\n` fine.
+- **Shell.** Don't assume bash. Prefer language-native APIs over shelling out. When you must shell out, provide both a Unix and a Windows form.
+- **Tool-specific extras.** This file is the canonical source. If a tool (Claude Code, Cursor, etc.) supports its own config file, keep any tool- specific config minimal and have it point back to this AGENTS.md rather than duplicating rules.
+- **Nested AGENTS.md.** If a sub-project adds its own AGENTS.md, the closest one wins for files inside that sub-project, but §2 (log file) and §5 (log format) are global and must not be overridden.
+
+---
+
+## 8. QUICK CHECKLIST FOR THE AGENT
+
+Before you respond to any user message, confirm:
+
+- [ ] I have read this file in this session.
+- [ ] I know whether onboarding is required (checked the log).
+- [ ] I will append a §5.2 entry after this turn.
+- [ ] I will not log secrets.
+- [ ] I will preserve the repo layout in §6.
+
+If any box is unchecked, fix that first.
+
+</INSTRUCTIONS>
+
+Agent Response Summary:
+Read the repository instructions in full and confirmed the existing agreement for this exact root. Continuing the active responsive phase and preserving append-only external logging. No repeated onboarding is required.
+
+Actions:
+* Checked the agreement record and preserved the reference stack.
+
+Context:
+tool=Codex
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=none
+
+## [2026-10-11T07:14:45.855Z] SESSION START
+
+Agent: /root/performance
+Repo Root: C:\Users\rishi\Downloads\Design and build a React and Django App
+Branch: main
+Worktree: C:\Users\rishi\Downloads\Design and build a React and Django App
+Parent Agent: /root
+Stack: django
+
+## [2026-10-11T07:14:45.855Z] Prepare backend performance audit
+
+User Prompt (verbatim, secrets redacted):
+Read PROGRESS.md and git log. Continue from "In progress" or "Next". Don't redo Done items. Update PROGRESS.md as you go.
+
+Agent Response Summary:
+Read the progress file, repository instructions, and git history. Phase 2 remains in progress; preparing a read-only backend query audit for Phase 3 without modifying completed work. The parent agent will authorize edits after the responsive phase is committed.
+
+Actions:
+* Read PROGRESS.md and AGENTS.md and git log
+* Inspect backend query paths read-only
+
+Context:
+tool=/root/performance
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=C:\Users\rishi\Downloads\Design and build a React and Django App
+parent_agent=/root
+
+## [2026-10-11T07:15:29.778Z] Phase 2 CSS handoff
+
+User Prompt (verbatim, secrets redacted):
+[Delegated Phase 2 responsive task from /root; continuation of the logged user request.]
+
+Agent Response Summary:
+Completed responsive stylesheet corrections only, preserving the existing visual design. Mobile typography is readable, fields avoid mobile zoom, touch targets reach 44px through tablet widths, color controls wrap, and asset tables retain all data in their existing scroll container. Root lint and production build passed; parent owns browser rechecks, progress updates, formatting and phase commit.
+
+Actions:
+* Edited frontend/src/styles.css.
+* Ran npm run lint and npm run build successfully.
+* Released CSS ownership to /root.
+
+Context:
+tool=/root/responsive
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+
+## [2026-10-11T07:19:54.129Z] Backend Phase 3 performance complete
+
+User Prompt (verbatim, secrets redacted):
+Read PROGRESS.md and git log. Continue from "In progress" or "Next". Don't redo Done items. Update PROGRESS.md as you go.
+
+Agent Response Summary:
+After the parent authorized Phase 3, batched project counts, narrowed report and CSV projections, reused visible project scope, and summarized workloads in one pass without changing public response bodies. Read-only measurements across 18 owner/editor/reviewer requests confirm exact output equality; project-list reads fell from 10 to 3 and report BSON reply bytes from 33,425 to 9,405. Added a real Mongo regression for stage/version workloads and counts; all 14 integration tests pass.
+
+Actions:
+* Edited backend projects/repository.py, schema.py, services.py, views.py
+* Edited backend assets/repository.py and insights/repository.py, services.py
+* Added integration test in backend/apps/tests.py
+* Ran npm test and git diff --check
+* Stored read-only benchmark evidence outside the repository
+
+Context:
+tool=/root/performance
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=C:\Users\rishi\Downloads\Design and build a React and Django App
+parent_agent=/root
+
+## [2026-10-11T07:20:01.079Z] Phase 4 accessibility read-only audit
+
+User Prompt (verbatim, secrets redacted):
+[Delegated read-only Phase 4 accessibility audit from /root while Phase 3 remains in progress.]
+
+Agent Response Summary:
+Read the latest progress and history and inspected accessibility semantics without edits. Confirmed skip-link and keyboard anchoring failures, offscreen mobile navigation focusability, missing selected-button states and incomplete table scroll semantics. Calculated several pale text contrast failures and sent targeted remedies to the parent; existing labels, meaningful image alternatives and native dialog behavior were retained as successful foundations.
+
+Actions:
+* Read Shell, Modal, Primitives, AssetPreview, Threads, table, inbox, reports, login and HTML metadata.
+* Calculated contrast for known text/background color pairs.
+* Reported findings to /root; no repository edits.
+
+Context:
+tool=/root/responsive
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+
+## [2026-10-11T07:23:30.229Z] Phase 4 accessibility implementation handoff
+
+User Prompt (verbatim, secrets redacted):
+[Delegated Phase 4 authorized implementation from /root after Phase 3 commit ff8acf0.]
+
+Agent Response Summary:
+Implemented keyboard-safe skip navigation, mobile navigation inertness and focus trapping, keyboard image pinning, focusable copy content, accessible table scrolling and headers, selected button states, and full-name avatar alternatives. Darkened pale light-surface text while preserving hues and increased dark-surface caption and focus contrast; sampled corrected text contrast is approximately 6.1:1 on white. Lint and build pass, and source ownership is returned to the parent for browser verification, progress updates and the phase commit.
+
+Actions:
+* Edited frontend source components and styles.css within delegated scope.
+* Formatted edited files with ephemeral Prettier using the existing project configuration.
+* Ran npm run lint and npm run build successfully.
+* Calculated corrected contrast samples.
+
+Context:
+tool=/root/responsive
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+
+## [2026-10-11T07:28:33.395Z] Backend Phase 5 security complete
+
+User Prompt (verbatim, secrets redacted):
+Read PROGRESS.md and git log. Continue from "In progress" or "Next". Don't redo Done items. Update PROGRESS.md as you go.
+
+Agent Response Summary:
+Prepared read-only scans during Phase 4 and waited until the parent authorized Phase 5 edits. Fixed a bounded per-worker IP and email login limiter, matched unknown-account bcrypt cost, limited malformed session tokens, added active frame/cache protection, and mapped oversized JSON bodies to HTTP 413. Updated five existing packages to maintainer-verified security releases without introducing dependencies; frozen installation, both advisory scans, all 17 Mongo integration tests, lint, build, and concurrently smoke checks passed.
+
+Actions:
+* Edited backend auth/services.py, shared/errors.py, added shared/middleware.py, settings.py, .env.example, tests.py
+* Updated Django5.2.18, DRF3.17.2, PyJWT2.15.0, python-dotenv1.2.2 and shell-quote1.11.0 override
+* Ran Bun and ephemeral pip-audit scans, preserving audit reports outside repo
+* Ran npm test, npm run lint, npm run build, frozen install and concurrently smoke check
+* Verified maintainer release sources on djangoproject.com and GitHub
+
+Context:
+tool=/root/performance
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=C:\Users\rishi\Downloads\Design and build a React and Django App
+parent_agent=/root
+
+## [2026-10-11T07:41:44.188Z] Native transcript source manifest prepared
+
+User Prompt (verbatim, secrets redacted):
+Read PROGRESS.md and git log. Continue from "In progress" or "Next". Don't redo Done items. Update PROGRESS.md as you go.
+
+Agent Response Summary:
+Identified the original root session and all spawned descendants using native session metadata, including parent and fork ancestry. Wrote a source manifest outside the repository and checked the shared summary log for credential signatures and known generated environment secrets, reporting only counts. No repository files or databases were changed during the read-only validation.
+
+Actions:
+* Read PROGRESS.md
+* Inspected session metadata and wrote external transcript-sources.json
+* Scanned shared summary log for credential exposures without printing values
+
+Context:
+tool=/root/performance
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=C:\Users\rishi\Downloads\Design and build a React and Django App
+parent_agent=/root
+
+## [2026-10-11T07:42:23.581Z] Final static validation report
+
+User Prompt (verbatim, secrets redacted):
+[Delegated final read-only static validation from /root during Phase 6.]
+
+Agent Response Summary:
+Read the validator, guideline and all references, reviewed the actual calendar dependency baseline, and mapped27 public product method/routes to26 independently meaningful frontend capabilities and Mongo persistence. Reported and rechecked repaired loading/error/navigation and note-length defects; cached Prettier check passes. The remaining README fixed notification-count claim is inaccurate because UTC-relative reminder creation varies; parent is correcting it after runtime inspection. Static report is outside the repository and full runtime acceptance remains with the parent audit.
+
+Actions:
+* Read-only source, YAML/JSON/lockfile and staged archive inspection.
+* Wrote C:\Users\rishi\.cache\reviewroom-runtime\static-validation.md.
+* No repository edits, installs, server starts or database writes.
+
+Context:
+tool=/root/responsive
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+
+## [2026-10-11T07:43:20.281Z] Static validation documentation recheck
+
+User Prompt (verbatim, secrets redacted):
+[Parent requested recheck of corrected README notification-count claim.]
+
+Agent Response Summary:
+Reopened only the corrected README claim and derived16 base notifications from seed data without importing settings or querying MongoDB. README now accurately distinguishes the16 base notifications from UTC-relative reminders and states19 as the observed total. All19 static checks pass; the parent owns consolidated live runtime and final transcript/archive acceptance.
+
+Actions:
+* Updated external static-validation.md from18 PASS/1 FAIL to19 PASS/0 FAIL.
+* No repository edits or runtime mutation.
+
+Context:
+tool=/root/responsive
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=/root
+
+## [2026-10-11T07:48:22.690Z] Final validation and handover preparation
+
+User Prompt (verbatim, secrets redacted):
+Read PROGRESS.md and git log. Continue from "In progress" or "Next". Don't redo Done items. Update PROGRESS.md as you go.
+
+Agent Response Summary:
+Continued after completed Phases 1-4, finished and committed Phase 5 security patches, and documented Phase 6 setup, credentials, reset behavior, and Vercel hosting boundaries. Final read-only validation found small loading/error/link/form-limit gaps; repairs were made outside the audit and rechecked, yielding 57 PASS with 17 Mongo integration tests and 65 live API requests. Exact clean install/start/build and restart restoration passed, final responsive screenshots were saved, and private GitHub ownership/status were reverified. Transcript export and final publication are being completed; collaborator invitation, Discord notification, live Vercel, Linux runtime, and full screen-reader certification remain unclaimed.
+
+Actions:
+* Committed Phase 5 as 0e06e2a; updated README.md, PROGRESS.md, and three frontend recovery/form files.
+* Ran exact clean install/start/restart, lint/build, 17 tests, 65 API requests and direct Mongo verification; wrote external validation-report.md.
+* Prepared six native-session exports and unchanged shared summary copy under transcripts.
+
+Context:
+tool=Codex
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=none
+
+## [2026-10-11T07:50:57.372Z] Audit cleanup verdict correction
+
+User Prompt (verbatim, secrets redacted):
+Read PROGRESS.md and git log. Continue from "In progress" or "Next". Don't redo Done items. Update PROGRESS.md as you go.
+
+Agent Response Summary:
+All application/runtime checks still pass, but automatic approval review rejected two verified external scratch cleanup commands with blocked by policy. No deletion workaround was used; the temporary folders/scripts remain outside the repository. Corrected validation and PROGRESS.md to 56 PASS and 1 MANUAL for R12, and documented exact user cleanup steps in the external report. Final lint/build and the 450560-byte runtime archive checks pass; six native transcripts and unchanged summary export are prepared.
+
+Actions:
+* Attempted verified PowerShell scratch cleanup; execution policy rejected it twice.
+* Updated PROGRESS.md and external validation-report.md; reran lint/build and archive inspection.
+
+Context:
+tool=Codex
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=none
+
+## [2026-10-11T07:52:33.351Z] Private publication verified
+
+User Prompt (verbatim, secrets redacted):
+Read PROGRESS.md and git log. Continue from "In progress" or "Next". Don't redo Done items. Update PROGRESS.md as you go.
+
+Agent Response Summary:
+All six phases are complete with one commit per phase, and the completed Reviewroom application plus six native session exports were pushed to the private GitHub origin. The first publication was verified by matching local/remote SHA and GitHub private=true; final handoff metadata and the latest transcript cutoff are being folded into the Phase 6 commit. Final lint/build and clean installation checks pass; validation remains 56 PASS/1 MANUAL solely because automatic approval review blocked deletion of external scratch artifacts. Collaborator invitation, Discord notification, live deployment, Linux runtime, and full screen-reader certification remain explicitly pending or unverified.
+
+Actions:
+* Committed Phase 6, pushed origin/main, and verified remote commit/private status.
+* Updated PROGRESS.md to completed implementation plus exact external pending actions; refreshed transcript export.
+
+Context:
+tool=Codex
+branch=main
+repo_root=C:\Users\rishi\Downloads\Design and build a React and Django App
+worktree=main
+parent_agent=none

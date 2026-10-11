@@ -44,31 +44,38 @@ Updated: 2026-10-11 (Asia/Calcutta)
 - Phase 5 complete: no exposed secrets found; all environment variants ignored; public frontend environment example added. Hardened login timing and bounded login limits, oversized tokens/JSON, API cache/frame headers, optional controlled-proxy HTTPS settings, and Vercel response headers.
 - Phase 5 dependencies: patched existing Django, DRF, PyJWT, python-dotenv, and shell-quote versions; no new dependency added. Bun and Python advisory scans report no known vulnerabilities. All 17 real Mongo integration tests, frozen Bun install, lint/build, and exact startup pass. Live health returns 200; protected assets return 401; both include no-store and DENY headers.
 
+- Phase 6 complete: concise product/operator README covers stack, structure, prerequisites, exact setup/start, Mongo reset semantics, five seeded accounts, scripts, and Vercel frontend with separate Django/Mongo hosting. Final validation repaired missed recovery/empty/link states and aligned the version-note form limit. Repository validation records 56 PASS / 1 MANUAL (external scratch cleanup), 17 tests, and 65 live API checks. Six native AI session histories and the unchanged shared summary log are exported under transcripts with credential patterns redacted and an explicit export cutoff.
+
+- Final validation first pass: clean archive install, build, native checks, and all 17 integration tests passed. Static review found inbox/activity loading/error gaps, project activity no-op links, an all-archived empty state, and a version-note limit mismatch. Exited read-only validation, repaired these states/links/limit, and passed lint/build before beginning a fresh audit pass.
+- Final validation: 56 PASS (19 static, 11 runtime, 26 user capabilities), 1 MANUAL (R12 external scratch cleanup), no FAIL/N/A. Exact clean install/start/build, 17 Mongo integration tests, 65 live API requests covering all 27 product method/routes, persisted writes/deletion, and exact restart restoration pass. Notification baseline is 16 fixed plus UTC-relative reminders (19 observed), now accurately documented. Audit servers/test database were removed; existing Mongo retained. Separate default seeded preview is running for the user.
+- Final browser checks: 10 authenticated page variants load without console errors; project activity link opens its project. Final dashboard has 345px document width at360px; desktop/mobile screenshots saved outside the repository. Final build: initial JS211240 bytes (before261767), all JS268904 bytes including deferred chunks, CSS58812 bytes, fonts129768 bytes, deploy476809 bytes (before2139266 including source maps).
+- Published the completed application and transcript exports to private origin/main; GitHub private=true and matching local/remote commit were verified. Final handoff metadata is included with the Phase 6 commit.
+
 ## In progress
 
-- Phase 6: write the product/operator README, run final read-only submission validation, and export transcripts.
+- No implementation phase remains. External cleanup and team handoff actions below are pending.
 
 ## Next
 
-1. Complete Phase 6 documentation, validation, and transcript export. Run lint/build and commit the phase.
-2. Push to the already verified private submission repository and verify its private status and remote commit.
-3. Collaborator invitation and Discord submission notification remain unavailable without the team's GitHub username/signed-in Settings UI and Discord destination.
+1. Remove the policy-blocked external audit scratch folders/scripts to close validation R12 (manual steps in the external validation report).
+2. Collaborator invitation and Discord submission notification remain unavailable without the team's GitHub username/signed-in Settings UI and Discord destination.
 
 ## Notes
 
-- Phases 1–5 are complete; Phase 6 is in progress. The initial workspace had no application to audit or preserve, so Phase 1 established the complete functional baseline.
+- Phases 1–6 are complete. The initial workspace had no application to audit or preserve, so Phase 1 established the complete functional baseline.
 - Build size before is the Phase 1 Reviewroom output recorded above; the calendar reference measurement is separate and is not used as the app baseline.
 - `origin` is the verified private submission repository. `guidelines` is the public starter source; do not push project changes to `guidelines`.
 - The reference uses React 19.2.4, Vite 8.2.2, Django 5.1.5, MongoEngine 0.29.1, MongoDB, Python 3.12, Bun >=1.3, and uv. Preserve its root Bun workspace and `bun.lock`; do not introduce an npm lockfile.
-- Neither the starter nor the reference root has `lint` or `build` scripts. Add root verification scripts during authorized implementation using the existing toolchain, without unnecessary dependencies.
+- Neither starter/reference root provided lint/build scripts; the completed app includes root verification scripts using the existing toolchain, without new dependencies.
 - The HackerRank contract uses frontend port 3000, backend port 8000, local media, deterministic MongoDB seeding, and no reliance on outbound email, WebSockets, hosted services, or server-side file uploads.
-- Vercel instructions must describe an actual supported deployment arrangement, including separately hosted Django and MongoDB and restricted frontend/API origins; deployment has not been configured or verified.
+- Vercel frontend configuration and instructions describe separately hosted Django/MongoDB with restricted origins; no live deployment was performed.
 - `AGENTS.md` onboarding is complete. The user removed the Discord idea approval requirement with `skip` in direct response to that option. A Discord submission notification still requires a destination.
 - Portable Bun 1.4.3 and uv 0.13.0 are available under the user's `.cache/reviewroom-runtime`; bundled Python 3.12.14 is compatible. MongoDB 8.0.32 is running locally; reference execution is complete. These are local prerequisites, not added repository dependencies.
 - Transcript summaries belong at `%USERPROFILE%/hackerrank_react_django_application/log.txt` while work is in progress; export them to `/transcripts` only at submission. Native tool sessions should also be exported at submission with secrets redacted.
-- Phase 1 is committed together with this progress log. Each remaining phase gets one commit after lint/build pass.
+- Each of the six phases is committed with this progress log after lint/build pass.
 - Collaborator invitation pending: GitHub API email search returned no username for `content.team@problemsetters.com`; the available browser is signed out. Asked for the team's GitHub username while implementation continues.
 - User answered `no` to having the team's username. Do not ask again or claim invitation completion; the email invitation requires a signed-in GitHub Settings UI or a subsequently supplied username.
 
 - No Framer Motion is installed; animations are lightweight CSS with reduced-motion support. Extra React memoization was not added without an expensive render path.
 - Security patches update existing package versions above the reference baseline to remove known advisories. Login counters are bounded per worker; production needs a shared edge rate limit. Vercel configuration is prepared but has not been deployed.
+- Automatic approval review rejected both verified cleanup commands with "blocked by policy". Temporary audit-20261011 / audit-final-20261011 folders and helper scripts remain under the user's external .cache/reviewroom-runtime directory; repository files and running application are unaffected. R12 is MANUAL until the user removes those scratch artifacts. No deletion workaround was used.

@@ -27,8 +27,9 @@ export default function Dashboard({ user, projects, people, navigate, onCreate, 
 		.filter((asset) => asset.dueAt && asset.status !== "approved")
 		.sort((first, second) => new Date(first.dueAt).getTime() - new Date(second.dueAt).getTime())
 		.slice(0, 3);
+	const activeProjects = projects.filter((project) => !project.archived);
 	const stats = [
-		["folder", "Active projects", projects.filter((project) => !project.archived).length, "Good things in motion", "violet"],
+		["folder", "Active projects", activeProjects.length, "Good things in motion", "violet"],
 		["review", "Awaiting review", summary.inReview || 0, "Ready for a fresh pair of eyes", "amber"],
 		["check", "Approved assets", summary.approved || 0, "One step closer to out there", "green"],
 		["clock", "Overdue reviews", summary.overdue || 0, "A gentle nudge might help", "rose"],
@@ -86,20 +87,19 @@ export default function Dashboard({ user, projects, people, navigate, onCreate, 
 					}
 				/>
 				<div className="project-grid dashboard-projects">
-					{projects
-						.filter((project) => !project.archived)
-						.slice(0, 3)
-						.map((project) => (
-							<ProjectCard key={project.id} project={project} people={people} onOpen={(id) => navigate(`project/${id}`)} />
-						))}
+					{activeProjects.slice(0, 3).map((project) => (
+						<ProjectCard key={project.id} project={project} people={people} onOpen={(id) => navigate(`project/${id}`)} />
+					))}
 				</div>
-				{!projects.length && (
+				{!activeProjects.length && (
 					<EmptyState
 						title="Make room for your first project."
 						action={
-							<button className="button primary" onClick={onCreate}>
-								New project
-							</button>
+							user.role !== "reviewer" && (
+								<button className="button primary" onClick={onCreate}>
+									New project
+								</button>
+							)
 						}
 					/>
 				)}
@@ -155,28 +155,34 @@ export default function Dashboard({ user, projects, people, navigate, onCreate, 
 			</div>
 			<section className="activity-section">
 				<SectionHeading title="Around the room" subtitle="The small steps behind the big ideas." />
-				<div className="activity-strip">
-					{activity.data?.slice(0, 3).map((event) => (
-						<button
-							className="activity-item"
-							key={event.id}
-							onClick={() => event.assetId && navigate(`asset/${event.assetId}`)}
-						>
-							<Avatar user={event.actor} color="lavender" size="small" />
-							<div>
-								<p>
-									<strong>{event.actor?.name || "A teammate"}</strong>{" "}
-									{event.description || event.action.replaceAll("_", " ")}
-								</p>
-								<small>
-									{relativeTime(event.createdAt)}
-									{event.assetTitle && ` · ${event.assetTitle}`}
-								</small>
-							</div>
-						</button>
-					))}
-					{!activity.data?.length && <p className="muted">Your workspace activity will appear here.</p>}
-				</div>
+				{activity.loading ? (
+					<LoadingState label="Loading workspace activity…" />
+				) : activity.error ? (
+					<ErrorState error={activity.error} retry={activity.refresh} />
+				) : (
+					<div className="activity-strip">
+						{activity.data?.slice(0, 3).map((event) => (
+							<button
+								className="activity-item"
+								key={event.id}
+								onClick={() => navigate(event.assetId ? `asset/${event.assetId}` : `project/${event.projectId}`)}
+							>
+								<Avatar user={event.actor} color="lavender" size="small" />
+								<div>
+									<p>
+										<strong>{event.actor?.name || "A teammate"}</strong>{" "}
+										{event.description || event.action.replaceAll("_", " ")}
+									</p>
+									<small>
+										{relativeTime(event.createdAt)}
+										{event.assetTitle && ` · ${event.assetTitle}`}
+									</small>
+								</div>
+							</button>
+						))}
+						{!activity.data?.length && <p className="muted">Your workspace activity will appear here.</p>}
+					</div>
+				)}
 			</section>
 		</>
 	);

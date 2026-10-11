@@ -1,0 +1,66 @@
+{
+  "exportedAt": "2026-10-11T07:52:33.816Z",
+  "repoRoot": "C:\\Users\\rishi\\Downloads\\Design and build a React and Django App",
+  "summary": {
+    "file": "log.txt",
+    "bytes": 69384,
+    "sha256": "69f2a3b47994935a1aa76844baf5ea7c33dae73a7b7f7be3ea5e08fb34a4c951",
+    "copiedUnchanged": true
+  },
+  "sessions": [
+    {
+      "agent": "/root",
+      "threadId": "01a1276a-7f9f-7bf1-9af4-a25077b0813e",
+      "sourceFile": "rollout-2026-10-11T01-34-13-01a1276a-7f9f-7bf1-9af4-a25077b0813e.jsonl",
+      "file": "root.jsonl",
+      "bytes": 8031919,
+      "sha256": "442f09ea3b00ff814ae0662501b5c2c6b7cd0b2e454557c44d17708137b48f75",
+      "redactions": 4
+    },
+    {
+      "agent": "/root/proposal_review",
+      "threadId": "01a1276a-f2f8-7ca1-98d2-504bacd371a4",
+      "sourceFile": "rollout-2026-10-11T01-34-42-01a1276a-f2f8-7ca1-98d2-504bacd371a4.jsonl",
+      "file": "proposal_review.jsonl",
+      "bytes": 2125381,
+      "sha256": "764ff25fe3c683b4415f788b2ce7c0136b33b2cd37572401c3f2d2c74944ab80",
+      "redactions": 5
+    },
+    {
+      "agent": "/root/backend",
+      "threadId": "01a1276f-bc37-7683-898a-23f9ca6bd8a8",
+      "sourceFile": "rollout-2026-10-11T01-39-56-01a1276f-bc37-7683-898a-23f9ca6bd8a8.jsonl",
+      "file": "backend.jsonl",
+      "bytes": 850161,
+      "sha256": "40e166d7f5d1e08bd395cd96db54a206552bbc250c657848dd006e231c211d76",
+      "redactions": 1
+    },
+    {
+      "agent": "/root/frontend",
+      "threadId": "01a1276f-fa88-7333-9e86-2f49187f9d10",
+      "sourceFile": "rollout-2026-10-11T01-40-12-01a1276f-fa88-7333-9e86-2f49187f9d10.jsonl",
+      "file": "frontend.jsonl",
+      "bytes": 889518,
+      "sha256": "0f29d696d12917d320445b75517a78125bfde8c58a62f57298618dc75e8dc6c8",
+      "redactions": 0
+    },
+    {
+      "agent": "/root/responsive",
+      "threadId": "01a129cf-6f22-78c1-b620-fbeca3b403a0",
+      "sourceFile": "rollout-2026-10-11T12-43-42-01a129cf-6f22-78c1-b620-fbeca3b403a0.jsonl",
+      "file": "responsive.jsonl",
+      "bytes": 1747964,
+      "sha256": "33e676b7b672c359f5aaca2cd416c3d4e6faf86426291838601a325ed286ea07",
+      "redactions": 1
+    },
+    {
+      "agent": "/root/performance",
+      "threadId": "01a129d0-171f-7f91-bb76-e18929939fe7",
+      "sourceFile": "rollout-2026-10-11T12-44-25-01a129d0-171f-7f91-bb76-e18929939fe7.jsonl",
+      "file": "performance.jsonl",
+      "bytes": 1518032,
+      "sha256": "c3c056e805c3422d6d9fc48329f8fd888ada38e431f4c4523ca690d7e3dcd7a9",
+      "redactions": 2
+    }
+  ]
+}

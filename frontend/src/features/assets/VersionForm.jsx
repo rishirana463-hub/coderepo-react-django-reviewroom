@@ -74,7 +74,7 @@ export default function VersionForm({ asset, mutate, onClose }) {
 							onChange={(event) => setNote(event.target.value)}
 							rows={2}
 							placeholder="A little context for your reviewers…"
-							maxLength={2000}
+							maxLength={1000}
 						/>
 					</FormField>
 					{error && (

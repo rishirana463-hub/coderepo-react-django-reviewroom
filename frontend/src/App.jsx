@@ -129,7 +129,9 @@ export default function App() {
 		);
 	else if (page === "asset") content = <AssetDetail {...common} key={id} id={id} onChanged={changed} />;
 	else if (page === "inbox")
-		content = inbox.error ? (
+		content = inbox.loading ? (
+			<LoadingState label="Loading your inbox…" />
+		) : inbox.error ? (
 			<ErrorState error={inbox.error} retry={inbox.refresh} />
 		) : (
 			<Inbox {...common} items={inbox.data || []} onChanged={changed} />
