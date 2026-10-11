@@ -14,5 +14,6 @@
         "build": "node scripts/build.mjs",
         "test": "node scripts/python.mjs backend/manage.py test apps --verbosity 2"
     },
-    "devDependencies": { "concurrently": "9.2.1" }
+    "devDependencies": { "concurrently": "9.2.1" },
+    "overrides": { "shell-quote": "1.11.0" }
 }

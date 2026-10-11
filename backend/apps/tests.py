@@ -1,8 +1,11 @@
 """Integration tests exercise real MongoDB and public HTTP routes in an isolated DB."""
 import os
+import base64
+import json
 from concurrent.futures import ThreadPoolExecutor
 from datetime import timedelta
 from urllib.parse import urlsplit
+from unittest.mock import patch
 
 import bcrypt
 import jwt
@@ -12,10 +15,12 @@ from django.test import SimpleTestCase
 from rest_framework.test import APIClient
 
 from apps.assets.models import Asset
+from apps.auth import services as auth_services
 from apps.auth.models import Member
 from apps.insights.models import Activity, Notification, SavedView
 from apps.projects.models import Project
 from apps.shared.documents import now
+from apps.shared.errors import AppError
 
 
 def isolated_mongo_uri(uri, database_name):
@@ -48,6 +53,8 @@ class WorkflowIntegrationTests(SimpleTestCase):
         super().tearDownClass()
 
     def setUp(self):
+        with auth_services._attempt_lock:
+            auth_services._attempts.clear()
         for model in (Member, Project, Asset, Activity, Notification, SavedView):
             model.drop_collection()
         self.members = {}
@@ -90,6 +97,58 @@ class WorkflowIntegrationTests(SimpleTestCase):
         self.assertEqual(self.call("get", "/auth/me").json()["data"]["role"], "owner")
         self.assertEqual(self.call("post", "/auth/logout", {}).status_code, 200)
         self.assertEqual(self.call("get", "/auth/me").status_code, 401)
+
+    def test_login_rate_limits_cover_rotating_emails_and_bound_memory(self):
+        with patch.dict(auth_services._attempts, {}, clear=True), patch("apps.auth.services.time.monotonic", return_value=1000):
+            for _ in range(20):
+                auth_services.record_attempt("same@example.test", "email-limit-ip")
+            with self.assertRaises(AppError) as rejected:
+                auth_services.record_attempt("same@example.test", "email-limit-ip")
+            self.assertEqual(rejected.exception.status, 429)
+            for index in range(100):
+                auth_services.record_attempt(f"rotating-{index}@example.test", "ip-limit-ip")
+            with self.assertRaises(AppError) as rejected:
+                auth_services.record_attempt("another@example.test", "ip-limit-ip")
+            self.assertEqual(rejected.exception.status, 429)
+        with patch.dict(auth_services._attempts, {}, clear=True), patch("apps.auth.services._max_attempt_buckets", 4):
+            for index in range(3):
+                auth_services.record_attempt(f"rotating-{index}@example.test", "bounded-ip")
+            with self.assertRaises(AppError):
+                auth_services.record_attempt("another@example.test", "bounded-ip")
+            self.assertEqual(len(auth_services._attempts), 4)
+        with patch.dict(auth_services._attempts, {}, clear=True), patch("apps.auth.services.time.monotonic", return_value=1000):
+            auth_services.record_attempt("expired@example.test", "expired-ip")
+            with patch("apps.auth.services.time.monotonic", return_value=1301):
+                auth_services.record_attempt("new@example.test", "new-ip")
+            self.assertNotIn(("ip", "expired-ip"), auth_services._attempts)
+
+    def test_unknown_login_cost_unicode_passwords_and_oversized_tokens(self):
+        with patch("apps.auth.services.repository.by_email", return_value=None), patch("apps.auth.services.bcrypt.checkpw", return_value=False) as compare:
+            response = APIClient().post("/api/v1/auth/login", {"email": "unknown@example.test", "password": "wrong"}, format="json")
+            self.assertEqual(response.status_code, 401)
+            self.assertEqual(compare.call_args.args[1], auth_services._dummy_hash)
+            self.assertTrue(auth_services._dummy_hash.startswith(b"$2b$12$"))
+        response = APIClient().post("/api/v1/auth/login", {"email": "owner@example.test", "password": "\U0001f603" * 19}, format="json")
+        self.assertEqual(response.status_code, 422)
+        header = '{"alg":"HS256","nested":' + "[" * 5000 + "0" + "]" * 5000 + "}"
+        token = base64.urlsafe_b64encode(header.encode()).decode().rstrip("=") + ".e30.e30"
+        client = APIClient()
+        client.credentials(HTTP_AUTHORIZATION="Bearer " + token)
+        self.assertEqual(client.get("/api/v1/auth/me").status_code, 401)
+
+    def test_security_headers_cors_and_json_body_limit(self):
+        client = APIClient()
+        response = client.get("/api/v1/health")
+        self.assertEqual(response["X-Frame-Options"], "DENY")
+        self.assertEqual(response["X-Content-Type-Options"], "nosniff")
+        self.assertIn("no-store", response["Cache-Control"])
+        self.assertIn("authorization", response["Vary"].lower())
+        response = client.get("/api/v1/health", HTTP_ORIGIN="https://untrusted.example")
+        self.assertIsNone(response.get("Access-Control-Allow-Origin"))
+        body = json.dumps({"ignored": "x" * (settings.DATA_UPLOAD_MAX_MEMORY_SIZE + 1)})
+        response = client.post("/api/v1/auth/login", data=body, content_type="application/json")
+        self.assertEqual(response.status_code, 413)
+        self.assertEqual(response.json()["error"]["code"], "REQUEST_TOO_LARGE")
 
     def test_mongo_uri_database_cannot_override_test_isolation(self):
         uri = "mongodb://tester:password@127.0.0.1:27017/reviewroom_db?authSource=admin&retryWrites=false"

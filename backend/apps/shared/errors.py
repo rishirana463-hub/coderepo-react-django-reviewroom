@@ -1,5 +1,6 @@
 import logging
 
+from django.core.exceptions import RequestDataTooBig
 from mongoengine.errors import NotUniqueError, ValidationError as MongoValidationError
 from rest_framework.response import Response
 from rest_framework.views import exception_handler
@@ -21,6 +22,8 @@ def invalid(field, message):
 
 
 def api_exception_handler(exc, context):
+    if isinstance(exc, RequestDataTooBig):
+        exc = AppError(413, "REQUEST_TOO_LARGE", "The request body is too large.")
     if isinstance(exc, (MongoValidationError, ValueError)):
         exc = AppError(422, "VALIDATION_ERROR", "The request contains an invalid value.")
     if isinstance(exc, NotUniqueError):

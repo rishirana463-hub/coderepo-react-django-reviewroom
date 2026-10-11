@@ -30,6 +30,8 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "apps.shared.middleware.APISecurityMiddleware",
 ]
 CORS_ALLOWED_ORIGINS = [value.strip() for value in os.getenv("CORS_ALLOWED_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000").split(",") if value.strip()]
 CORS_ALLOW_CREDENTIALS = False
@@ -52,3 +54,9 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_REFERRER_POLICY = "same-origin"
 X_FRAME_OPTIONS = "DENY"
 DATA_UPLOAD_MAX_MEMORY_SIZE = 1024 * 1024
+# Enable HTTPS redirects/HSTS only for a deployment configured to serve TLS.
+# Proxy headers are trusted separately and only behind a controlled proxy that
+# removes client-supplied X-Forwarded-Proto before setting its own value.
+SECURE_SSL_REDIRECT = os.getenv("REVIEWROOM_HTTPS", "false").lower() == "true"
+SECURE_HSTS_SECONDS = 31536000 if SECURE_SSL_REDIRECT else 0
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https") if os.getenv("TRUST_PROXY_HTTPS", "false").lower() == "true" else None
