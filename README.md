@@ -40,7 +40,7 @@ PROGRESS.md              # Phase decisions and verification history
 
 ## Prerequisites
 
-Install **Node 22.12+**, **Bun 1.3+**, **Python 3.12**, **uv**, **MongoDB 8**, and Bash (Git Bash on Windows). Put their executables on `PATH`. Local verification used Windows, Node 25.6, Bun 1.4.3, uv 0.13.0, Python 3.12.14, and MongoDB 8.0.32.
+Install **Node 22.12+**, **Bun 1.3+**, **Python 3.12**, **uv**, **MongoDB 8**, and Bash (Git Bash on Windows). Put their executables on `PATH`. Local verification used Windows and Ubuntu 26.04 on WSL2 with native Node 25.6, Bun 1.4.3, uv 0.13.0, Python 3.12.14, and MongoDB 8.0.32.
 
 ## Install and run
 
@@ -100,4 +100,4 @@ Django and MongoDB require separate hosting. Use a Python WSGI host that loads `
 
 Set `REVIEWROOM_HTTPS=true` after HTTPS works. Enable `TRUST_PROXY_HTTPS=true` only when a controlled proxy removes incoming client headers and sets `X-Forwarded-Proto` itself. Use a shared edge rate limit for multi-worker hosting; built-in bounded login counters are per worker. Never use assessment `bun start` in production: it resets data and uses development servers. Seed a hosted demo deliberately, then use the production WSGI entry point. Keep demo credentials out of a real customer deployment.
 
-This private authenticated workspace intentionally uses `noindex`/robots restrictions. Reminders stay in the product; there are no outbound emails, uploads, WebSockets, or hosted-media dependencies. Windows runtime and browser checks are recorded in `PROGRESS.md`; Linux execution, live Vercel hosting, and full screen-reader certification remain unverified.
+This private authenticated workspace intentionally uses `noindex`/robots restrictions. Reminders stay in the product; there are no outbound emails, uploads, WebSockets, or hosted-media dependencies. Windows/browser checks and clean Linux install/build/test/start/restart/shutdown checks are recorded in `PROGRESS.md`. The organizer's exact hosted image, live Vercel hosting, and full screen-reader certification remain unverified.

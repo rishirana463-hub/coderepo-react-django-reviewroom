@@ -51,14 +51,19 @@ Updated: 2026-10-11 (Asia/Calcutta)
 - Final browser checks: 10 authenticated page variants load without console errors; project activity link opens its project. Final dashboard has 345px document width at360px; desktop/mobile screenshots saved outside the repository. Final build: initial JS211240 bytes (before261767), all JS268904 bytes including deferred chunks, CSS58812 bytes, fonts129768 bytes, deploy476809 bytes (before2139266 including source maps).
 - Published the completed application and transcript exports to private origin/main; GitHub private=true and matching local/remote commit were verified. Final handoff metadata is included with the Phase 6 commit.
 
+- Submission follow-up: verified native Linux execution on Ubuntu 26.04 WSL2 using Node 25.6.0, Bun 1.4.3, uv 0.13.0, Python 3.12.14, and MongoDB 8.0.32. Official runtime archive checksums matched; portable prerequisites stayed outside the repository.
+- Clean Linux archive of a220aa0: exact `bun install && bash setup.sh --seed`, lint, build, all 17 real Mongo integration tests, exact `bun start`, frontend/backend/proxy health, 52 live API requests, persisted writes/deletion, and exact restart reset passed. All 118 archive source files remained byte-identical. Both SIGINT shutdowns released application ports; audit-owned MongoDB was stopped and Linux source/database scratch removed. Linux supplemental runtime validation: 12 PASS / 0 FAIL / 0 MANUAL. Original Windows scratch cleanup remains MANUAL; this does not claim the organizer's exact hosted image was tested.
+- Follow-up README/progress documentation updated and Windows `npm run lint` / `npm run build` passed again; generated bundle sizes are unchanged. GitHub API reverified private=true, matching main commit, and zero pending collaborator invitations. Refreshed AI transcripts for the private follow-up handoff; external Linux report/evidence remain outside the repository.
+
 ## In progress
 
-- No implementation phase remains. External cleanup and team handoff actions below are pending.
+- Submission access follow-up: GitHub email invitation awaits owner sign-in; Discord cannot proceed without its destination. Explained that Reviewroom is the product name and approval wording came from the original brief after the user asked what both steps meant. Do not repeat the unanswered requests or claim external completion. No application implementation remains pending.
 
 ## Next
 
-1. Remove the policy-blocked external audit scratch folders/scripts to close validation R12 (manual steps in the external validation report).
-2. Collaborator invitation and Discord submission notification remain unavailable without the team's GitHub username/signed-in Settings UI and Discord destination.
+1. Invite the content team when the owner signs in to GitHub Settings or provides the recipient's username; the user previously said they do not know it, so do not ask again.
+2. Discord confirmation/submission notification needs the actual destination. Implementation was authorized by the user's earlier `skip`; organizer acceptance has not been established.
+3. External Windows scratch cleanup remains policy-blocked after a fresh attempt with the user's explicit follow-up authorization; do not bypass the rejection. Exact manual steps remain in the external validation report.
 
 ## Notes
 
@@ -70,6 +75,7 @@ Updated: 2026-10-11 (Asia/Calcutta)
 - The HackerRank contract uses frontend port 3000, backend port 8000, local media, deterministic MongoDB seeding, and no reliance on outbound email, WebSockets, hosted services, or server-side file uploads.
 - Vercel frontend configuration and instructions describe separately hosted Django/MongoDB with restricted origins; no live deployment was performed.
 - `AGENTS.md` onboarding is complete. The user removed the Discord idea approval requirement with `skip` in direct response to that option. A Discord submission notification still requires a destination.
+- The earlier user-approved skip authorized implementation; it does not establish an organizer waiver. Team confirmation of Reviewroom and the collaborator invitation are now explicitly being pursued before submission.
 - Portable Bun 1.4.3 and uv 0.13.0 are available under the user's `.cache/reviewroom-runtime`; bundled Python 3.12.14 is compatible. MongoDB 8.0.32 is running locally; reference execution is complete. These are local prerequisites, not added repository dependencies.
 - Transcript summaries belong at `%USERPROFILE%/hackerrank_react_django_application/log.txt` while work is in progress; export them to `/transcripts` only at submission. Native tool sessions should also be exported at submission with secrets redacted.
 - Each of the six phases is committed with this progress log after lint/build pass.
@@ -78,4 +84,4 @@ Updated: 2026-10-11 (Asia/Calcutta)
 
 - No Framer Motion is installed; animations are lightweight CSS with reduced-motion support. Extra React memoization was not added without an expensive render path.
 - Security patches update existing package versions above the reference baseline to remove known advisories. Login counters are bounded per worker; production needs a shared edge rate limit. Vercel configuration is prepared but has not been deployed.
-- Automatic approval review rejected both verified cleanup commands with "blocked by policy". Temporary audit-20261011 / audit-final-20261011 folders and helper scripts remain under the user's external .cache/reviewroom-runtime directory; repository files and running application are unaffected. R12 is MANUAL until the user removes those scratch artifacts. No deletion workaround was used.
+- Automatic approval review rejected three verified Windows scratch cleanup attempts with "blocked by policy", including a fresh attempt after explicit follow-up authorization. Temporary audit-20261011 / audit-final-20261011 folders and helper scripts remain under the user's external .cache/reviewroom-runtime directory; repository files and running application are unaffected. Original validation R12 remains MANUAL until those artifacts are removed. No deletion workaround was used. The separate Linux audit cleaned only its newly created Linux scratch directory and owned processes.
